@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ lesson, chapter, next }) => {
+export default ({ lesson, chapter, next, completed }) => {
 
   return (
     <div className="lesson">
@@ -13,7 +13,7 @@ export default ({ lesson, chapter, next }) => {
 
       <p>{chapter.completionMessage}</p>
 
-      <button onClick={next}>{chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'}</button>
+      {completed ? <button onClick={next}>{chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'}</button> : null}
     </div>
   )
 }

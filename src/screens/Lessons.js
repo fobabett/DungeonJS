@@ -9,6 +9,7 @@ export default (props) => {
   const [level, setLevel] = useState(1)
   const [lesson, setLesson] = useState(getLesson(props.location.pathname))
   const [chapter, setChapter] = useState(getChapter(lesson, props.location.pathname))
+  const [completed, setCompleted] = useState(chapter.id === 0 ? true : false)
 
   const next = () => { //@TODO: refactor this
     let nextChapter = lesson.chapters[chapter.id + 1]
@@ -33,6 +34,7 @@ export default (props) => {
             lesson={lesson}
             chapter={chapter}
             next={next}
+            completed={completed}
           />
         </div>
       </div>
