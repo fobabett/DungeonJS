@@ -1,4 +1,4 @@
-import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, RESET } from '../actions';
+import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero';
 
 export const initialHeroState = {
   position: {
