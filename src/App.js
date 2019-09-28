@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CodeMirror from 'react-codemirror';
+import "../node_modules/codemirror/lib/codemirror.css";
+import "../node_modules/codemirror/theme/dracula.css";
+import '../node_modules/codemirror/mode/javascript/javascript';
 
-function App() {
+const App = () => {
+  let options = {
+    lineNumbers: true,
+    mode: 'javascript',
+    theme: 'dracula'
+  }
+
+  const onChange = (val) => {
+    console.log(val)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CodeMirror className='editor' options={options} onChange={onChange} />
     </div>
   );
 }
