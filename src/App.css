@@ -1,22 +1,28 @@
-.App {
-  text-align: center;
+.container{
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
+.game-container, .editor-container{
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.game-container{
+  width: 60%;
 }
 
-.App-link {
-  color: #09d3ac;
+.game{
+  background-color: red;
+  height: 500px;
+}
+
+.editor-container{
+  background: blue;
+  width: auto;
+  width: 40%;
+}
+
+.CodeMirror.cm-s-dracula, .ReactCodeMirror.editor{
+  height: 100%;
 }
