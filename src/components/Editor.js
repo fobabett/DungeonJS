@@ -4,7 +4,6 @@ import "../../node_modules/codemirror/lib/codemirror.css";
 import "../../node_modules/codemirror/theme/dracula.css";
 import '../../node_modules/codemirror/mode/javascript/javascript';
 
-import heroActions from '../actions/hero'
 import { useStateValue } from './StateProvider'
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero'
 
