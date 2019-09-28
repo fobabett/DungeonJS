@@ -1,29 +1,27 @@
-import React, { useState } from 'react';
-import Editor from './components/Editor'
-import Room from './components/Room'
+import React from 'react';
 import { StateProvider } from './components/StateProvider'
 import { combinedReducer } from './reducers'
 import { initialHeroState } from './reducers/hero'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Menu from './screens/Menu'
+import Game from './screens/Game'
+import Lessons from './screens/Lessons'
 
 import './App.css';
 
 const App = () => {
 
-  const [level, setLevel] = useState(0)
   const initialState = {
     hero: initialHeroState
   }
 
   return (
     <StateProvider reducer={combinedReducer} initialState={initialState}>
-      <div className="container">
-        <div className="game-container">
-          <div className="game">
-            <Room level={level} />
-          </div>
-        </div>
-        <Editor />
-      </div>
+      <Router>
+        <Route exact path="/" component={Menu} />
+        <Route path="/game" component={Game} />
+        <Route path="/lessons" component={Lessons} />
+      </Router>
     </StateProvider>
   );
 }
