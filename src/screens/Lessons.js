@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Editor from '../components/Editor'
 import Room from '../components/Room'
-import { getLesson, getChapter } from '../lib/lesson'
+import { getLesson, getChapter, isLastChapter, isLastLesson } from '../lib/lesson'
 import Lesson from '../components/Lesson'
 import { useStateValue } from '../components/StateProvider'
+import lessons from '../lib/lessons';
 
 export default (props) => {
   console.log(props)
@@ -13,10 +14,12 @@ export default (props) => {
   const [completed, setCompleted] = useState(chapter.id === 0 ? true : false)
   const [{ hero }] = useStateValue();
 
-  const next = () => { //@TODO: refactor this
-    let nextChapter = lesson.chapters[chapter.id + 1]
+  const next = () => {
+    let nextLesson = isLastChapter(lesson, chapter) && !isLastLesson(lesson) ? getLesson(lessons[lesson.id].path) : lesson
+    let nextChapter = nextLesson !== lesson ? nextLesson.chapters[0] : nextLesson.chapters[chapter.id+1]
     setChapter(nextChapter)
-    props.history.push(`/lessons/${lesson.path}/${nextChapter.path}`)
+    setLesson(nextLesson)
+    props.history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
   }
 
   return (
