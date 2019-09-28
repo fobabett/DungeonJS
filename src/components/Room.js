@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { generateTiles } from '../lib/tileGenerator'
 import Hero from './characters/Hero'
+import { TILES_GENERATED } from '../actions'
+import { useStateValue } from './StateProvider'
 
 const Room = ({ level }) => {
 
+  const [{ hero }, dispatch] = useStateValue();
   const {playerPos, tiles} = generateTiles(level)
+
+  useEffect(() => {
+    dispatch({ type: TILES_GENERATED, position: playerPos })
+  }, [])
 
   const grid = tiles.map(row => console.log(row) ||
     <div className="room-tile-row">

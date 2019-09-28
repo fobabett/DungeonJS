@@ -1,4 +1,5 @@
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero';
+import{ TILES_GENERATED } from '../actions'
 
 export const initialHeroState = {
   position: {
@@ -9,6 +10,12 @@ export const initialHeroState = {
 
 const heroReducer = (state, action) => {
   switch (action.type) {
+    case TILES_GENERATED:
+      return {
+        ...state,
+        position: action.position
+      };
+
     case MOVE_UP:
       return {
         ...state,
