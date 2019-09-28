@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import CodeMirror from 'react-codemirror';
 import "../../node_modules/codemirror/lib/codemirror.css";
 import "../../node_modules/codemirror/theme/dracula.css";
 import '../../node_modules/codemirror/mode/javascript/javascript';
+
+import { useStateValue } from './StateProvider'
 
 export const Editor = () => {
 
@@ -21,7 +23,7 @@ export const Editor = () => {
     try {
       var result = (() => { return eval(code) })()
       console.log(result)
-
+      
     } catch (err) {
       console.log(err)
     }

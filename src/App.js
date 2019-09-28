@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { Provider } from 'react-redux';
-import store from './store';
 import Editor from './components/Editor'
 import Room from './components/Room'
+import { StateProvider } from './components/StateProvider'
+import { combinedReducer } from './reducers'
+import { initialHeroState } from './reducers/hero'
 
 import './App.css';
 
 const App = () => {
 
   const [level, setLevel] = useState(0)
+  const initialState = {
+    hero: initialHeroState
+  }
 
   return (
-    <Provider store={store}>
+    <StateProvider reducer={combinedReducer} initialState={initialState}>
       <div className="container">
         <div className="game-container">
           <div className="game">
@@ -20,7 +24,7 @@ const App = () => {
         </div>
         <Editor />
       </div>
-    </Provider>
+    </StateProvider>
   );
 }
 

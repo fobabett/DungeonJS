@@ -1,7 +1,5 @@
-import { combineReducers } from 'redux';
+import heroReducer from './hero'
 
-import player from './player';
-
-export default combineReducers({
-  player
-});
+export const combinedReducer = ({ hero }, action) => ({
+  hero: heroReducer(hero, action)
+})
