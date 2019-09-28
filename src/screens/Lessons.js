@@ -13,10 +13,26 @@ export default (props) => {
   const [chapter, setChapter] = useState(getChapter(lesson, props.location.pathname))
   const [completed, setCompleted] = useState(chapter.id === 0 ? true : false)
   const [{ hero }] = useStateValue();
+  const objectivePosition = chapter.answer.player_position || {}
+
+  const playerReachedObjective = () => {
+    let reachedObjective = true
+    Object.keys(objectivePosition).map(pos => {
+      if (hero[pos] !== objectivePosition[pos]) {
+        reachedObjective = false
+      }
+      return pos
+    })
+    return reachedObjective
+  }
+
+  if(playerReachedObjective()) {
+    setCompleted(true)
+  }
 
   const next = () => {
     let nextLesson = isLastChapter(lesson, chapter) && !isLastLesson(lesson) ? getLesson(lessons[lesson.id].path) : lesson
-    let nextChapter = nextLesson !== lesson ? nextLesson.chapters[0] : nextLesson.chapters[chapter.id+1]
+    let nextChapter = nextLesson !== lesson ? nextLesson.chapters[0] : nextLesson.chapters[chapter.id + 1]
     setChapter(nextChapter)
     setLesson(nextLesson)
     props.history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
