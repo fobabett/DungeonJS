@@ -28,7 +28,31 @@ function attack(){
         path: 'create-a-function',
         content: `In order to move the character up the y axis, we must increment 'player.y' by 1.`,
         task: 'Create a function named "moveUp" that moves the character up one tile.',
-        answer: { text_match: `function moveUp(){player.y = player.y+1}`} //or similar
+        example: `
+class Player {
+  constructor(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+var player = new Player()
+
+// Move character to the right
+// function moveRight(){
+//  player.x += 1;
+//}
+`,
+        answer: {
+          text_match: [
+            `function moveUp(){player.y=player.y+1}`, //what's the best way to replace spaces while preserving spaces where they should be?
+            `function moveUp(){player.y+=1}`,
+            `let moveUp=()=>{player.y=player.y+1}`,
+            `let moveUp=()=>{player.y+=1}`,
+            `const moveUp=()=>{player.y=player.y+1}`,
+            `const moveUp=()=>{player.y+=1}` //any more?
+          ]
+        }
       },
       {
         id: 2,
@@ -38,7 +62,7 @@ function attack(){
         did you notice that nothing happend? That's because functions have to be invoked in order to do their job.
         <Blah Blah explain function invocation + show example here>.`,
         task: 'Move the character up one title by invoking the function you created previously.',
-        answer: { player_position: { x: null, y: 1 }}
+        answer: { player_position: { y: 1 }}
       },
       // cover arguments??
       {

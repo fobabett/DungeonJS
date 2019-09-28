@@ -33,7 +33,6 @@ export const Editor = ({ placeholder, evaluate }) => {
       if(evaluate !== null) {
         evaluate(code, result)
       }
-
     } catch (err) {
       console.log(err)
     }

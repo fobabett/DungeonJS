@@ -10,6 +10,7 @@ export default (props) => {
   const [lesson, setLesson] = useState(getLesson(props.location.pathname))
   const [chapter, setChapter] = useState(getChapter(lesson, props.location.pathname))
   const [completed, setCompleted] = useState(chapter.id === 0 ? true : false)
+  const [{ hero }] = useStateValue();
 
   const next = () => { //@TODO: refactor this
     let nextChapter = lesson.chapters[chapter.id + 1]
@@ -18,9 +19,23 @@ export default (props) => {
   }
 
   const evaluate = (code, result) => {
-    console.log(code)
-    console.log(result)
-    
+    // console.log(code)
+    // console.log(result)
+    let correct = true
+    if(code && chapter.answer.text_match) {
+      // let formattedCode = code
+      // .replace(/ /g, '')
+      // .replace(/\r?\n|\r/g, '')
+      // .replace(/{/g,)
+      // console.log(formattedCode)
+    }
+    if(code && chapter.answer.player_position) {
+      Object.keys(chapter.answer.player_position).map(pos => {
+        if(hero[pos] !== chapter.answer.player_position[pos]) {
+          correct = true
+        }
+      })
+    }
   }
 
   return (
