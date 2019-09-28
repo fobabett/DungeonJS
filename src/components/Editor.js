@@ -7,7 +7,7 @@ import '../../node_modules/codemirror/mode/javascript/javascript';
 import { useStateValue } from './StateProvider'
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero'
 
-export const Editor = ({ placeholder }) => {
+export const Editor = ({ placeholder, evaluate }) => {
 
   const [{ hero }, dispatch] = useStateValue();
   let [code, setCode] = useState()
@@ -21,7 +21,7 @@ export const Editor = ({ placeholder }) => {
     setCode(val.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$|(<script>)|eval|XMLHttpRequest|document\.write/gm, ""))
   }
 
-  const attack = () => dispatch(({ type: ATTACK }))
+  const attack = () => dispatch(({ type: ATTACK })) //should be dispatched from Game?
   const moveUp = () => dispatch(({ type: MOVE_UP }))
   const moveDown = () => dispatch(({ type: MOVE_DOWN }))
   const moveLeft = () => dispatch(({ type: MOVE_LEFT }))
@@ -30,7 +30,9 @@ export const Editor = ({ placeholder }) => {
   const run = () => {
     try {
       var result = (() => { return eval(code) })()
-      console.log(result)
+      if(evaluate !== null) {
+        evaluate(code, result)
+      }
 
     } catch (err) {
       console.log(err)

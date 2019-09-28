@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import Editor from '../components/Editor'
 import Room from '../components/Room'
-import { getLesson, getLessonSection } from '../lib/lesson'
+import { getLesson, getChapter } from '../lib/lesson'
 import Lesson from '../components/Lesson'
 
 export default (props) => {
   console.log(props)
-  const [level, setLevel] = useState(0)
+  const [level, setLevel] = useState(1)
   const [lesson, setLesson] = useState(getLesson(props.location.pathname))
-  const [lessonSection, setLessonSection] = useState(getLessonSection(lesson, props.location.pathname))
+  const [chapter, setChapter] = useState(getChapter(lesson, props.location.pathname))
 
-  const next = () => {
-    let nextSection = lesson.sections[lessonSection.id + 1]
-    setLessonSection(nextSection)
-    props.history.push(`/lessons/${lesson.path}/${nextSection.path}`)
+  const next = () => { //@TODO: refactor this
+    let nextChapter = lesson.chapters[chapter.id + 1]
+    setChapter(nextChapter)
+    props.history.push(`/lessons/${lesson.path}/${nextChapter.path}`)
+  }
+
+  const evaluate = (code, result) => {
+    console.log(code)
+    console.log(result)
+    
   }
 
   return (
@@ -25,12 +31,12 @@ export default (props) => {
         <div className="lesson-container">
           <Lesson
             lesson={lesson}
-            lessonSection={lessonSection}
+            chapter={chapter}
             next={next}
           />
         </div>
       </div>
-      <Editor placeholder={lessonSection.example} />
+      <Editor evaluate={evaluate} placeholder={chapter.example} />
     </div>
 
   );

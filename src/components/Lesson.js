@@ -1,19 +1,19 @@
 import React from 'react'
 
-export default ({ lesson, lessonSection, next }) => {
+export default ({ lesson, chapter, next }) => {
 
   return (
     <div className="lesson">
       <h1>{lesson.title}</h1>
-      <h2>{lessonSection.title}</h2>
-      <p>{lessonSection.content}</p>
+      <h2>{chapter.title}</h2>
+      <p>{chapter.content}</p>
       <br></br>
-      {lessonSection.task ? <p>{lessonSection.task}</p> : null}
+      {chapter.task ? <p>{chapter.task}</p> : null}
 
 
-      <p>{lessonSection.completionMessage}</p>
+      <p>{chapter.completionMessage}</p>
 
-      <button onClick={next}>{lessonSection.completionMessage ? 'Next Lesson: Loops' : 'Next'}</button>
+      <button onClick={next}>{chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'}</button>
     </div>
   )
 }

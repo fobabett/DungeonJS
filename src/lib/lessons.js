@@ -1,10 +1,11 @@
-// Just one of the game levels for these lessons?
+// import levels from './levels'
+
 const lessons = [
   {
     id: 1,
     title: "Functions",
     path: 'functions',
-    sections: [
+    chapters: [
       {
         id: 0,
         title: "What Are Functions?",
@@ -14,12 +15,12 @@ const lessons = [
         example: `
 // example
 function attack(){
-  console.log('attack!')
+  // do stuff
 }
 // or
-const attack = () => {
-  console.log('attack!')
-}`
+// const attack = () => {
+  // do stuff
+//}`
       },
       {
         id: 1,
@@ -51,13 +52,14 @@ const attack = () => {
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
         In the next lesson, you will learn about loops and how you cn use them to complete this level.`
       },
-    ]
+    ],
+    // level: levels[1]
   },
   {
     id: 2,
     title: "Loops",
     path: 'loops',
-    sections: [
+    chapters: [
       {
         id: 0,
         title: "",

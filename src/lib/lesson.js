@@ -8,10 +8,10 @@ export const getLesson = (pathname) => {
   return lessons.find(l => l.path === path)
 }
 
-export const getLessonSection = (lesson, pathname) => {
+export const getChapter = (lesson, pathname) => {
   let path = pathname.split('/')[3]
   if(!path) {
-    return lesson.sections[0]
+    return lesson.chapters[0]
   }
-  return lesson.sections.find(s => s.path === path)
+  return lesson.chapters.find(s => s.path === path)
 }
