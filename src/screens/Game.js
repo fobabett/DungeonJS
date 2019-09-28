@@ -6,6 +6,11 @@ export default () => {
 
   const [level, setLevel] = useState(0)
 
+  const evaluate = (code, result) => {
+    console.log('evaluate code', code)
+    console.log('evaluate result', result)
+  }
+
   return (
     <div className="container">
       <div className="game-container">
@@ -13,7 +18,7 @@ export default () => {
           <Room level={level} />
         </div>
       </div>
-      <Editor />
+      <Editor evaluate={evaluate} />
     </div>
 
   );

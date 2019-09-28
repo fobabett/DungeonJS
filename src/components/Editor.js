@@ -5,9 +5,9 @@ import "../../node_modules/codemirror/theme/dracula.css";
 import '../../node_modules/codemirror/mode/javascript/javascript';
 
 import { useStateValue } from './StateProvider'
-import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero'
+import run from '../lib/codeRunner'
 
-export const Editor = ({ placeholder, evaluate }) => {
+export const Editor = ({ placeholder }) => {
 
   const [{ hero }, dispatch] = useStateValue();
   let [code, setCode] = useState()
@@ -21,27 +21,12 @@ export const Editor = ({ placeholder, evaluate }) => {
     setCode(val.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$|(<script>)|eval|XMLHttpRequest|document\.write/gm, ""))
   }
 
-  const attack = () => dispatch(({ type: ATTACK })) //should be dispatched from Game?
-  const moveUp = () => dispatch(({ type: MOVE_UP }))
-  const moveDown = () => dispatch(({ type: MOVE_DOWN }))
-  const moveLeft = () => dispatch(({ type: MOVE_LEFT }))
-  const moveRight = () => dispatch(({ type: MOVE_RIGHT }))
-
-  const run = () => {
-    try {
-      var result = (() => { return eval(code) })()
-      if(evaluate !== null) {
-        evaluate(code, result)
-      }
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  const runCode = () => run(code, dispatch)
 
   return (
     <div className='editor-container'>
       <CodeMirror value={placeholder || ''} className='editor' options={options} onChange={onChange} />
-      <button onClick={run}>Run</button>
+      <button onClick={runCode}>Run</button>
     </div>
   )
 }

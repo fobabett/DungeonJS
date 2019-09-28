@@ -3,6 +3,7 @@ import Editor from '../components/Editor'
 import Room from '../components/Room'
 import { getLesson, getChapter } from '../lib/lesson'
 import Lesson from '../components/Lesson'
+import { useStateValue } from '../components/StateProvider'
 
 export default (props) => {
   console.log(props)
@@ -16,26 +17,6 @@ export default (props) => {
     let nextChapter = lesson.chapters[chapter.id + 1]
     setChapter(nextChapter)
     props.history.push(`/lessons/${lesson.path}/${nextChapter.path}`)
-  }
-
-  const evaluate = (code, result) => {
-    // console.log(code)
-    // console.log(result)
-    let correct = true
-    if(code && chapter.answer.text_match) {
-      // let formattedCode = code
-      // .replace(/ /g, '')
-      // .replace(/\r?\n|\r/g, '')
-      // .replace(/{/g,)
-      // console.log(formattedCode)
-    }
-    if(code && chapter.answer.player_position) {
-      Object.keys(chapter.answer.player_position).map(pos => {
-        if(hero[pos] !== chapter.answer.player_position[pos]) {
-          correct = true
-        }
-      })
-    }
   }
 
   return (
@@ -53,7 +34,7 @@ export default (props) => {
           />
         </div>
       </div>
-      <Editor evaluate={evaluate} placeholder={chapter.example} />
+      <Editor placeholder={chapter.example} />
     </div>
 
   );
