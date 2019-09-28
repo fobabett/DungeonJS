@@ -19,8 +19,9 @@ const App = () => {
     <StateProvider reducer={combinedReducer} initialState={initialState}>
       <Router>
         <Route exact path="/" component={Menu} />
-        <Route path="/game" component={Game} />
-        <Route path="/lessons" component={Lessons} />
+        <Route exact path="/game" component={Game} />
+        <Route exact path="/lessons" component={Lessons} />
+        <Route exact path="/lessons/:lesson/:id" component={Lessons} />
       </Router>
     </StateProvider>
   );

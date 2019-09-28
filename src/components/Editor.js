@@ -7,7 +7,7 @@ import '../../node_modules/codemirror/mode/javascript/javascript';
 import { useStateValue } from './StateProvider'
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero'
 
-export const Editor = () => {
+export const Editor = ({ placeholder }) => {
 
   const [{ hero }, dispatch] = useStateValue();
   let [code, setCode] = useState()
@@ -39,7 +39,7 @@ export const Editor = () => {
 
   return (
     <div className='editor-container'>
-      <CodeMirror className='editor' options={options} onChange={onChange} />
+      <CodeMirror value={placeholder || ''} className='editor' options={options} onChange={onChange} />
       <button onClick={run}>Run</button>
     </div>
   )
