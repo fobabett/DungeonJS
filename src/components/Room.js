@@ -1,5 +1,6 @@
 import React from 'react';
 import { generateTiles } from '../lib/tileGenerator'
+import Hero from './characters/Hero'
 
 const Room = ({ level }) => {
 
@@ -19,6 +20,7 @@ const Room = ({ level }) => {
       <h2>Level: { level }</h2>
       <div className="room">
         { grid }
+        <Hero />
       </div>
 
     </div>
