@@ -10,7 +10,6 @@ export default ({ lesson, chapter, next, completed }) => (
 
 
     <p>{chapter.completionMessage}</p>
-    <button onClick={next}>{chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'}</button> 
     {completed ? <button onClick={next}>{chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'}</button> : null}
   </div>
 )
