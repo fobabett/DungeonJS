@@ -17,7 +17,10 @@ const run = (code, dispatch) => {
     const moveLeft = () => dispatch({ type: MOVE_LEFT })
     const moveRight = () => dispatch({ type: MOVE_RIGHT })
 
-    eval(code)
+    try {
+      eval(code)
+    } catch (err) {
+    }
 
   })(no, no, no, no, no, no, no, no, no, no)
 }
