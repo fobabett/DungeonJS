@@ -3,7 +3,7 @@ import React from 'react';
 const Key = () => {
 
   return (
-    <div className="tile-key">@</div>
+    <div className="tile tile-key">@</div>
   );
 }
 

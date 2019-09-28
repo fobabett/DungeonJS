@@ -3,7 +3,7 @@ import React from 'react';
 const Floor = () => {
 
   return (
-    <div className="tile-floor">#</div>
+    <div className="title tile-floor">#</div>
   );
 }
 

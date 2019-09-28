@@ -3,7 +3,7 @@ import React from 'react';
 const Door = () => {
 
   return (
-    <div className="tile-door">D</div>
+    <div className="title tile-door">D</div>
   );
 }
 
