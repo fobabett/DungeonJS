@@ -8,26 +8,25 @@ const Room = ({ level }) => {
 
   const [{ hero }, dispatch] = useStateValue();
   const { playerPos, tiles } = generateTiles(level)
-
+console.log(playerPos)
   useEffect(() => {
     dispatch({ type: TILES_GENERATED, position: playerPos, tiles })
   }, [])
 
-  const grid = tiles.map(row => console.log(row) ||
+  const grid = tiles.map((row, y) => console.log(row) ||
     <div className="room-tile-row">
       {row
-        .map(Tile => <Tile />)
+        .map((Tile, x) => <Tile x={x} y={y} />)
       }
     </div>
   )
-
   return (
     // @TODO RESTRUCTURE THIS POC
     <div className="game">
       <h2>Level: {level}</h2>
       <div className="room">
         {grid}
-        <Hero />
+        <Hero pos={hero.position} />
       </div>
 
     </div>

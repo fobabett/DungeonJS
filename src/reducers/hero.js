@@ -21,7 +21,7 @@ const heroReducer = (state, action) => {
         ...state,
         position: {
           ...state.position,
-          y: state.position.y + 1
+          y: state.position.y - 1 //y is reversed on grid
         }
       };
     
@@ -30,7 +30,7 @@ const heroReducer = (state, action) => {
         ...state,
         position: {
           ...state.position,
-          y: state.position.y - 1
+          y: state.position.y + 1 //y is reversed on grid
         }
       };
     

@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Door = () => {
+const Door = (pos) => {
 
   return (
-    <div className="title tile-door">D</div>
+    <div className={`tile tile-door x${pos.x} y${pos.y}`}>D
+    <p>x: {pos.x} y: {pos.y}</p>
+    </div>
   );
 }
 

@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Key = () => {
+const Key = (pos) => {
 
   return (
-    <div className="tile tile-key">@</div>
+    <div className={`tile tile-key x${pos.x} y${pos.y}`}>
+      @
+      <p>x: {pos.x} y: {pos.y}</p>
+    </div>
   );
 }
 

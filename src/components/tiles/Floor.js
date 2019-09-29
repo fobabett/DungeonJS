@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Floor = () => {
+const Floor = (pos) => {
 
   return (
-    <div className="title tile-floor">#</div>
+    <div className={`tile tile-floor x${pos.x} y${pos.y}`}>#
+    <p>x: {pos.x} y: {pos.y}</p>
+    </div>
   );
 }
 
