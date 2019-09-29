@@ -74,19 +74,18 @@ function myFirstFunc() {
         title: "Callenge",
         path: 'challenge',
         content: `Great job!
-        The game already has the following functions to controller the player:`,
+        The game has the following functions to controller the player:`,
         example: `
 moveUp
 moveDown
 moveLeft
 moveRight`,
-        task: 'Using these functions, move the player to the objective.',
+        task: 'Using these functions, move the player to the ladder.',
         answer: { player_position: { x:3, y: 1 } }, //should be objective position
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
         In the next lesson, you will learn about loops and how you cn use them to complete this level.`
       },
     ],
-    // level: levels[1]
   },
   {
     id: 2,
