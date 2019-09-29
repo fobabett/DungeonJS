@@ -2,6 +2,7 @@ import lessons from './lessons'
 
 export const getLesson = (pathname) => {
   let path = pathname.split('/')[2]
+  console.log('path', path)
   if (!path) {
     return lessons[0]
   }
@@ -16,5 +17,5 @@ export const getChapter = (lesson, pathname) => {
   return lesson.chapters.find(s => s.path === path)
 }
 
-export const isLastChapter = (lesson, currentChapter) => currentChapter.id - 1 === lesson.chapters.length
-export const isLastLesson = (currentLesson) => currentLesson.id - 1 === lessons.length
+export const isLastChapter = (lesson, currentChapter) => currentChapter.id + 1 === lesson.chapters.length
+export const isLastLesson = (currentLesson) => currentLesson.id === lessons.length
