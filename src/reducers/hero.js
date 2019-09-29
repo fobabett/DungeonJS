@@ -1,5 +1,5 @@
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero';
-import{ TILES_GENERATED, RETRY } from '../actions'
+import { TILES_GENERATED, RETRY } from '../actions'
 
 export const initialHeroState = {
   initialPosition: {
@@ -12,7 +12,11 @@ export const initialHeroState = {
   }
 };
 
+const isInBounds = (position) => position.y > -1 && position.x < 10 && position.x > -1
+
 const heroReducer = (state, action) => {
+  let x
+  let y
   switch (action.type) {
     case TILES_GENERATED:
       return {
@@ -22,41 +26,33 @@ const heroReducer = (state, action) => {
       };
 
     case MOVE_UP:
+      y = state.position.y - 1  //y is reversed on grid
       return {
         ...state,
-        position: {
-          ...state.position,
-          y: state.position.y - 1 //y is reversed on grid
-        }
+        position: isInBounds({ ...state.position, y }) ? { ...state.position, y } : state.position
       };
-    
+
     case MOVE_DOWN:
+      y = state.position.y + 1  //y is reversed on grid
       return {
         ...state,
-        position: {
-          ...state.position,
-          y: state.position.y + 1 //y is reversed on grid
-        }
+        position: isInBounds({ ...state.position, y }) ? { ...state.position, y } : state.position
       };
-    
+
     case MOVE_LEFT:
+      x = state.position.x - 1
       return {
         ...state,
-        position: {
-          ...state.position,
-          x: state.position.x - 1
-        }
+        position: isInBounds({ ...state.position, x }) ? { ...state.position, x } : state.position
       };
-    
+
     case MOVE_RIGHT:
+      x = state.position.x + 1
       return {
         ...state,
-        position: {
-          ...state.position,
-          x: state.position.x + 1
-        }
+        position: isInBounds({ ...state.position, x }) ? { ...state.position, x } : state.position
       };
-    
+
     case RETRY:
       return {
         ...state,
