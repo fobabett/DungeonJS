@@ -5,7 +5,7 @@ import { getLesson, getChapter, isLastChapter, isLastLesson } from '../lib/lesso
 import Lesson from '../components/Lesson'
 import { useStateValue } from '../components/StateProvider'
 import lessons from '../lib/lessons';
-import { RETRY, SUCCESS, REFRESH } from '../actions';
+import { RETRY, SUCCESS, RESET } from '../actions';
 
 export default (props) => {
   const [level, setLevel] = useState(1)
@@ -38,14 +38,18 @@ export default (props) => {
     }
   }
 
+  const reset = () => {
+    setCompleted(false)
+    setSuccess(false)
+    dispatch({ type: RESET })
+  }
+
   const next = () => {
     let nextLesson = isLastChapter(lesson, chapter) && !isLastLesson(lesson) ? getLesson(lessons[lesson.id].path) : lesson
     let nextChapter = nextLesson !== lesson ? nextLesson.chapters[0] : nextLesson.chapters[chapter.id + 1]
     setChapter(nextChapter)
     setLesson(nextLesson)
-    setCompleted(false)
-    setSuccess(false)
-    dispatch({ type: REFRESH })
+    reset()
     props.history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
   }
 
