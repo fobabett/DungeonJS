@@ -7,9 +7,8 @@ export default ({ lesson, chapter, completed, success, incorrect }) => (
     <h1>{lesson.title}</h1>
     <h2>{chapter.title}</h2>
     {!incorrect && !success ?
-      <div>
+      <div className="chapter-content">
         <p>{chapter.content}</p>
-        <br></br>
         {chapter.example ?
           <SyntaxHighlighter language="javascript">
             {chapter.example}
@@ -19,11 +18,11 @@ export default ({ lesson, chapter, completed, success, incorrect }) => (
       : null}
 
     {incorrect ? <div>
-      <p>Incorrect</p>
+      <p className="result result-incorrect">Incorrect</p>
     </div> : null}
 
     {success ? <div>
-      <p>Success</p>
+      <p className="result result-success">Success!</p>
     </div> : null}
 
     {completed ? <p>{chapter.completionMessage}</p> : null}

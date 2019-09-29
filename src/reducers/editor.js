@@ -1,4 +1,4 @@
-import { RUN, RUNNING, RETRY, SUCCESS, CONSOLE_LOG } from '../actions';
+import { RUN, RUNNING, RETRY, SUCCESS, CONSOLE_LOG, RESET } from '../actions';
 
 export const initialEditorState = {
   executed: false,
@@ -38,6 +38,13 @@ const editorReducer = (state, action) => {
         executed: false,
         executing: false
       };
+
+    case RESET:
+      return {
+        executed: false,
+        success: false,
+        executing: false
+      }
 
     default:
       return state;

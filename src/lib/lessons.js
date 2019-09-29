@@ -89,7 +89,8 @@ moveRight`,
         task: 'Using these functions, move the player to the ladder.',
         answer: { player_position: { x:3, y: 1 } }, //should be objective position
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
-        In the next lesson, you will learn about loops and how you cn use them to complete this level.`
+        In the next lesson, you will learn about loops and how you cn use them to complete this level.`,
+        placeholder: ''
       },
     ],
   },
@@ -100,7 +101,7 @@ moveRight`,
     chapters: [
       {
         id: 0,
-        title: "",
+        title: "Coming Soon",
         path: 'loops',
         content: ``,
       },

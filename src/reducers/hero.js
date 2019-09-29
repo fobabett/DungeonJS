@@ -1,5 +1,5 @@
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero';
-import { TILES_GENERATED, RETRY, REFRESH } from '../actions'
+import { TILES_GENERATED, RETRY, RESET } from '../actions'
 
 export const initialHeroState = {
   initialPosition: {
@@ -12,7 +12,7 @@ export const initialHeroState = {
   }
 };
 
-const isInBounds = (position) => position.y > -1 && position.x < 10 && position.x > -1
+const isInBounds = (position) => position.y > -1 && position.y < 9 && position.x < 10 && position.x > -1
 
 const heroReducer = (state, action) => {
   let x
@@ -59,7 +59,7 @@ const heroReducer = (state, action) => {
         position: state.initialPosition
       }
 
-    case REFRESH:
+    case RESET:
       return {
         ...state,
         position: state.initialPosition
