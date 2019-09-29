@@ -12,7 +12,7 @@ export const initialHeroState = {
   }
 };
 
-const isInBounds = (position) => position.y > -1 && position.x < 10 && position.x > -1
+const isInBounds = (position) => position.y > -1 && position.y < 9 && position.x < 10 && position.x > -1
 
 const heroReducer = (state, action) => {
   let x
