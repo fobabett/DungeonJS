@@ -4,7 +4,7 @@ import { combinedReducer } from './reducers'
 import { initialHeroState } from './reducers/hero'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Menu from './screens/Menu'
-import Game from './screens/Game'
+// import Game from './screens/Game'
 import Lessons from './screens/Lessons'
 
 import './App.css';
@@ -25,7 +25,7 @@ const App = () => {
     <StateProvider reducer={combinedReducer} initialState={initialState}>
       <Router>
         <Route exact path="/" component={Menu} />
-        <Route exact path="/game" component={Game} />
+        {/* <Route exact path="/game" component={Game} /> */}
         <Route exact path="/lessons" component={Lessons} />
         <Route exact path="/lessons/:lesson/:id" component={Lessons} />
       </Router>
