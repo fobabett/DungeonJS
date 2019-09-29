@@ -1,29 +1,40 @@
 .container{
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
   height: 100vh;
+  box-sizing: border-box;
 }
 
 .game-container, .editor-container{
-  height: 100%;
   vertical-align: top;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .game-container{
-  width: 500px;
-  /* display: table-cell; */
-  display: table-cell;
+  flex: 0 0 500px;
   height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.game-container > .game{
+  flex: 0 0 400px;
 }
 
 .game{
   height: 400px;
 }
 
+.lesson-container{
+  flex: 1 0 100px;
+}
+
 .editor-container{
   position: relative;
-  /* display: table-cell; */
-  display: table-cell;
-  width: 100%;
-  height: 100vh;
+  flex: 1 0 500px;
+  height: 100%;
 
 }
 
