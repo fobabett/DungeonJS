@@ -60,7 +60,7 @@ export default (props) => {
     setLesson(nextLesson)
     reset()
     props.history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
-    window.location.reload() //temp fix to clear editor
+    // window.location.reload() //temp fix to clear editor
   }
 
   const tryAgain = () => {
