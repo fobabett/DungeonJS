@@ -10,6 +10,7 @@ import run from '../lib/codeRunner'
 export const Editor = ({ placeholder, tryAgain, incorrect }) => {
   const [{ room, hero, editor }, dispatch] = useStateValue();
   let [code, setCode] = useState()
+  let [buttonLabel, setButtonLabel] = useState('Run')
   let options = {
     lineNumbers: true,
     mode: 'javascript',
@@ -23,12 +24,22 @@ export const Editor = ({ placeholder, tryAgain, incorrect }) => {
 
   const runCode = () => run(code, dispatch, { tiles: room.tiles, heroPosition: hero.position })
 
+
+  const runButton = () => {
+    let className = 'button run-button'
+    if (incorrect) {
+      return <button className={className} onClick={tryAgain}>Try Again</button>;
+    } else {
+      const label = editor.executing ? 'Running' : 'Run'
+      if(editor.executing) className += ' disabled'
+      return <button disabled={editor.executing} className={className} onClick={runCode}>{label}</button>;
+    }
+  }
+
   return (
     <div className='editor-container'>
       <CodeMirror className='editor' options={options} onChange={onChange} />
-      {!incorrect
-        ? <button disabled={editor.executing} className={`button run-button ${editor.executing ? 'disabaled' : ''}`} onClick={runCode}>{editor.executing ? 'Running' : 'Run'}</button>
-        : <button className="button run-button" onClick={tryAgain}>Try Again</button>}
+      {runButton()}
     </div>
   )
 }
