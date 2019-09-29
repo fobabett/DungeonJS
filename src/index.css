@@ -313,7 +313,11 @@ code {
   right: 0;
   width: 58%;
   height: 50px;
-  background: #FD7CC5;
+  background-color: #FD7CC5;
+}
+
+.run-button.disabled{
+  background-color: #A45580;
 }
 
 .lesson{

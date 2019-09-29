@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ lesson, chapter, next, completed, success, incorrect, tryAgain }) => (
+export default ({ lesson, chapter, next, completed, success, incorrect }) => (
   <div className="lesson">
 
     <h1>{lesson.title}</h1>
@@ -15,7 +15,6 @@ export default ({ lesson, chapter, next, completed, success, incorrect, tryAgain
 
     {incorrect ? <div>
       <p>Incorrect</p>
-      <button onClick={tryAgain}>Try Again</button>
     </div> : null}
 
     {success ? <div>

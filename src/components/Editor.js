@@ -7,7 +7,7 @@ import '../../node_modules/codemirror/mode/javascript/javascript';
 import { useStateValue } from './StateProvider'
 import run from '../lib/codeRunner'
 
-export const Editor = ({ placeholder }) => {
+export const Editor = ({ placeholder, tryAgain, incorrect }) => {
   const [{ room, hero, editor }, dispatch] = useStateValue();
   let [code, setCode] = useState()
   let options = {
@@ -26,7 +26,9 @@ export const Editor = ({ placeholder }) => {
   return (
     <div className='editor-container'>
       <CodeMirror value={placeholder || ''} className='editor' options={options} onChange={onChange} />
-      {!editor.executing ? <button className='button run-button' onClick={runCode}>Run</button> : null}
+      {!incorrect
+        ? <button disabled={editor.executing} className={`button run-button ${editor.executing ? 'disabaled' : ''}`} onClick={runCode}>{editor.executing ? 'Running' : 'Run'}</button>
+        : <button className="button run-button" onClick={tryAgain}>Try Again</button>}
     </div>
   )
 }

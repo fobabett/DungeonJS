@@ -63,12 +63,11 @@ export default (props) => {
             next={next}
             completed={completed}
             incorrect={incorrect}
-            tryAgain={tryAgain}
             success={success}
           />
         </div>
       </div>
-      <Editor placeholder={chapter.example} />
+      <Editor incorrect={incorrect} tryAgain={tryAgain} placeholder={chapter.example} />
     </div>
 
   );
