@@ -8,7 +8,7 @@ import { useStateValue } from './StateProvider'
 import run from '../lib/codeRunner'
 
 export const Editor = ({ placeholder }) => {
-  const [{ room, hero, enemy }, dispatch] = useStateValue();
+  const [{ room, hero, editor }, dispatch] = useStateValue();
   let [code, setCode] = useState()
   let options = {
     lineNumbers: true,
@@ -25,7 +25,7 @@ export const Editor = ({ placeholder }) => {
   return (
     <div className='editor-container'>
       <CodeMirror value={placeholder || ''} className='editor' options={options} onChange={onChange} />
-      <button onClick={runCode}>Run</button>
+      {!editor.executing ? <button onClick={runCode}>Run</button> : null}
     </div>
   )
 }

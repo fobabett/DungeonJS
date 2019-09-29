@@ -22,13 +22,15 @@ const editorReducer = (state, action) => {
     case RETRY:
       return {
         ...state,
-        executed: false
+        executed: false,
+        executing: false
       }
 
     case SUCCESS:
       return {
         ...state,
-        executed: false
+        executed: false,
+        executing: false
       };
 
     default:

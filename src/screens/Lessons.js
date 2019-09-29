@@ -20,7 +20,6 @@ export default (props) => {
   const playerReachedObjective = () => {
     let reachedObjective = true
     Object.keys(objectivePosition).map(pos => {
-      console.log(hero.position[pos], objectivePosition[pos])
       if (hero.position[pos] !== objectivePosition[pos]) {
         reachedObjective = false
       }
