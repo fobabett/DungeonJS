@@ -28,7 +28,8 @@ export default (props) => {
     }
     return reachedObjective
   }
-  if (objectivePosition !== null & editor.executed && !incorrect && !completed) {
+
+  if (objectivePosition !== null && editor.executed && !incorrect && !completed) {
     if (playerReachedObjective()) {
       dispatch({ type: SUCCESS })
       setCompleted(true)
