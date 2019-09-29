@@ -17,7 +17,6 @@ export default (props) => {
   const objectivePosition = chapter.id !== 0 ? chapter.answer.player_position : null
   const [incorrect, setIncorrect] = useState(false)
 
-
   const playerReachedObjective = () => {
     let reachedObjective = true
     Object.keys(objectivePosition).map(pos => {
