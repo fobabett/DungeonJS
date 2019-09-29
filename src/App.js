@@ -22,7 +22,7 @@ const App = () => {
   }
 
   return (
-    <StateProvider reducer={combinedReducer} initialState={initialState}>
+    <StateProvider className='app' reducer={combinedReducer} initialState={initialState}>
       <Router>
         <Route exact path="/" component={Menu} />
         {/* <Route exact path="/game" component={Game} /> */}
