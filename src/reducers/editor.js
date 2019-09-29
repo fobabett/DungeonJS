@@ -3,6 +3,8 @@ import { RUN, RUNNING, RETRY, SUCCESS, CONSOLE_LOG } from '../actions';
 export const initialEditorState = {
   executed: false,
   executing: false,
+  success: false,
+  error: null, // @TODO display this
   code: null
 };
 
@@ -24,6 +26,7 @@ const editorReducer = (state, action) => {
     case RETRY:
       return {
         ...state,
+        error: action.error,
         executed: false,
         executing: false
       }
@@ -31,10 +34,11 @@ const editorReducer = (state, action) => {
     case SUCCESS:
       return {
         ...state,
+        success: true,
         executed: false,
         executing: false
       };
-    
+
     default:
       return state;
   }

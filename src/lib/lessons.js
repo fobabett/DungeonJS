@@ -20,7 +20,7 @@ function attack(){
 
 const attack = () => {
   // do stuff
-}`
+}`,
       },
       {
         id: 1,
@@ -34,13 +34,12 @@ function exampleFunc() {
   console.log("This is an example function!")
 }
 `,
-        answer: {
-          text_match: [
-            "function myFirstFunc() {",
-            'console.log("hello world")',
-            "}"
-          ]
-        }
+        verify: `
+          if(myFirstFunc === undefined)
+            throw new Error('myFirstFunc does not exist or was misspelled')
+          if(typeof myFirstFunc !== 'function')
+            throw new Error('myFirstFunc is not a function')
+        `
       },
       {
         id: 2,
@@ -56,17 +55,24 @@ function exampleFunc() {
         // Invoke the function
         exampleFunc()
         `,
-        placeholder: 
-`
-function myFirstFunc() {
+        placeholder:
+`function myFirstFunc() {
   console.log("hello world")
 }
 `,
-        answer: {
-          text_match: [
-            "myFirstFunc()"
-          ]
-        }
+        precode: `
+          let __myFirstFuncWasExecuted = false
+          const __realLog = console.log
+          console.log = function() {
+            __myFirstFuncWasExecuted = true;
+            __realLog(...arguments);
+          }
+        `,
+        verify: `
+          if(!__myFirstFuncWasExecuted)
+            throw new Error('myFirstFunc was not invoked or was misspelled')
+          console.log = __realLog
+        `
       },
       // cover arguments??
       {
