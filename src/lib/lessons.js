@@ -26,7 +26,7 @@ const attack = () => {
         id: 1,
         title: "Create a Function",
         path: 'create-a-function',
-        content: `This game uses predefined functions to control the character. Before you start playing, you should learn how to create and call a function. Let's start by creating a simple function.`,
+        content: `This game uses predefined functions to control the character. Before you start playing, you should learn how to use functions. Let's start by creating a simple function.`,
         task: 'Create a function named "myFirstFunc" that prints "hello world".',
         example: `
 // This function prints "This is an example function!"
@@ -46,11 +46,27 @@ function exampleFunc() {
         id: 2,
         title: "Invoking Functions",
         path: 'invoking-functions',
-        content: `Great job on creating your first function. When you executed the program, 
-        did you notice that nothing happend? That's because functions have to be invoked in order to do their job.
-        <Blah Blah explain function invocation + show example here>.`,
-        task: 'Move the character up one title by invoking the function you created previously.',
-        answer: { player_position: { y: 2 }}
+        content: `Great job on creating your first function. This function didn't actually print "hello world". This is because functions need to be invoked in order to do their job.
+        To call a function, enter it's name follwed by a pair of open and closed paraentheses:`,
+        task: 'Invoke myFirstFunc',
+        example: `
+        function exampleFunc() {
+          console.log("This is an example function!")
+        }
+        // Invoke the function
+        exampleFunc()
+        `,
+        placeholder: 
+`
+function myFirstFunc() {
+  console.log("hello world")
+}
+`,
+        answer: {
+          text_match: [
+            "myFirstFunc()"
+          ]
+        }
       },
       // cover arguments??
       {
@@ -58,9 +74,14 @@ function exampleFunc() {
         title: "Callenge",
         path: 'challenge',
         content: `Great job!
-        The game already has player movement functions built for you. <list funcs here>.`,
+        The game already has the following functions to controller the player:`,
+        example: `
+moveUp
+moveDown
+moveLeft
+moveRight`,
         task: 'Using these functions, move the player to the objective.',
-        answer: { player_position: { }}, //should be objective position
+        answer: { player_position: {} }, //should be objective position
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
         In the next lesson, you will learn about loops and how you cn use them to complete this level.`
       },

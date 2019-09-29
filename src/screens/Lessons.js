@@ -54,7 +54,7 @@ export default (props) => {
         setIncorrect(true)
       }
     }
-    else if (chapter.answer && chapter.answer.text_match) {
+    else if (editor.code && chapter.answer && chapter.answer.text_match) {
       if(conainsCodeRequirement()) {
         setCompleted(true)
         setSuccess(true)
@@ -97,7 +97,7 @@ export default (props) => {
           />
         </div>
       </div>
-      <Editor incorrect={incorrect} tryAgain={tryAgain} placeholder={chapter.example} />
+      <Editor incorrect={incorrect} tryAgain={tryAgain} placeholder={chapter.placeholder} />
     </div>
 
   );
