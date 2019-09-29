@@ -1,27 +1,43 @@
-import { RUN, RETRY, SUCCESS } from '../actions';
+import { MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero';
+import{ TILES_GENERATED } from '../actions'
 
-export const initialEditorState = {
-  executed: false
+export const initialEnemyState = {
+  position: {
+    x: 0,
+    y: 0
+  }
 };
 
-const editorReducer = (state, action) => {
+// moves whenver Hero moves
+// move towards hero if possible
+// make sure next title is a Floor tile
+
+const enemyReducer = (state, action) => {
   switch (action.type) {
-    case RUN:
+    case TILES_GENERATED:
       return {
         ...state,
-        executed: true
+        position: action.position
       };
 
-    case RETRY:
+    case MOVE_UP:
       return {
         ...state,
-        executed: false
-      }
-
-    case SUCCESS:
+      };
+    
+    case MOVE_DOWN:
       return {
         ...state,
-        executed: false
+      };
+    
+    case MOVE_LEFT:
+      return {
+        ...state,
+      };
+    
+    case MOVE_RIGHT:
+      return {
+        ...state,
       };
 
     default:
@@ -29,4 +45,4 @@ const editorReducer = (state, action) => {
   }
 }
 
-export default editorReducer
+export default enemyReducer

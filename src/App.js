@@ -8,13 +8,14 @@ import Game from './screens/Game'
 import Lessons from './screens/Lessons'
 
 import './App.css';
-import { initialEditorState } from './reducers/editor';
+import { initialEditorState, initialEnemyState } from './reducers/editor';
 
 const App = () => {
 
   const initialState = {
     hero: initialHeroState,
-    editor: initialEditorState
+    editor: initialEditorState,
+    enemy: initialEnemyState
   }
 
   return (
