@@ -430,7 +430,22 @@ code {
   top: 100px !important;
 }
 .hero.y4{
-  top: 100px;
+  top: 100px !important;;
+}
+.hero.y5{
+  top: 150px !important;;
+}
+.hero.y6{
+  top: 200px !important;;
+}
+.hero.y7{
+  top: 250px !important;;
+}
+.hero.y8{
+  top: 300px !important;;
+}
+.hero.y9{
+  top: 350px !important;;
 }
 
 .button{

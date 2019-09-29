@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 export default () => {
 
   return (
-    <div>
+    <div className="title-screen">
       <h1>[Title Here]</h1>
-      {/* <Link>Lessons</Link> */}
-      <Link to='/game'>Play</Link>
+      <p>Learn JavaScript or test your skills</p>
+      <Link className="button" to='/lessons'>Lessons</Link>
+      <Link className="button disabled">Play <span>Coming Soon</span></Link>
     </div>
   )
 }
