@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Editor from '../components/Editor'
 import Room from '../components/Room'
 import { getLesson, getChapter, isLastChapter, isLastLesson } from '../lib/lesson'
 import Lesson from '../components/Lesson'
 import { useStateValue } from '../components/StateProvider'
 import lessons from '../lib/lessons';
+import { RETRY, SUCCESS } from '../actions';
 
 export default (props) => {
   console.log(props)
@@ -12,22 +13,31 @@ export default (props) => {
   const [lesson, setLesson] = useState(getLesson(props.location.pathname))
   const [chapter, setChapter] = useState(getChapter(lesson, props.location.pathname))
   const [completed, setCompleted] = useState(chapter.id === 0 ? true : false)
-  const [{ hero }] = useStateValue();
+  const [success, setSuccess] = useState(false)
+  const [{ hero, editor }, dispatch] = useStateValue();
   const objectivePosition = chapter.answer.player_position || {}
+  const [incorrect, setIncorrect] = useState(false)
 
   const playerReachedObjective = () => {
     let reachedObjective = true
     Object.keys(objectivePosition).map(pos => {
-      if (hero[pos] !== objectivePosition[pos]) {
+      console.log(hero.position[pos], objectivePosition[pos])
+      if (hero.position[pos] !== objectivePosition[pos]) {
         reachedObjective = false
       }
       return pos
     })
     return reachedObjective
   }
-
-  if(playerReachedObjective()) {
-    setCompleted(true)
+  
+  if (editor.executed && !incorrect && !completed) {
+    if (playerReachedObjective()) {
+      dispatch({ type: SUCCESS })
+      setCompleted(true)
+      setSuccess(true)
+    } else {
+      setIncorrect(true)
+    }
   }
 
   const next = () => {
@@ -36,6 +46,11 @@ export default (props) => {
     setChapter(nextChapter)
     setLesson(nextLesson)
     props.history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
+  }
+  
+  const tryAgain = () => {
+    setIncorrect(false)
+    dispatch({ type: RETRY })
   }
 
   return (
@@ -50,6 +65,9 @@ export default (props) => {
             chapter={chapter}
             next={next}
             completed={completed}
+            incorrect={incorrect}
+            tryAgain={tryAgain}
+            success={success}
           />
         </div>
       </div>
