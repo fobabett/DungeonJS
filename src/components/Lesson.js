@@ -7,9 +7,8 @@ export default ({ lesson, chapter, completed, success, incorrect }) => (
     <h1>{lesson.title}</h1>
     <h2>{chapter.title}</h2>
     {!incorrect && !success ?
-      <div>
+      <div className="chapter-content">
         <p>{chapter.content}</p>
-        <br></br>
         {chapter.example ?
           <SyntaxHighlighter language="javascript">
             {chapter.example}

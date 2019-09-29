@@ -518,10 +518,30 @@ code {
 }
 
 .lesson p, h1, h2 {
-  text-align: left
+  text-align: left;
+}
+
+.lesson p{
+  font-size: 12px;
+  margin: 0;
+}
+
+h1{
+  font-size: 14px;
+  margin-bottom: 2px;
+  color: #DD527F;
+}
+
+h2{
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .task{
   color: #FB7FC4;
   font-weight: bold;
+}
+
+.lesson pre{
+  font-size: 11px;
 }
