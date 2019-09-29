@@ -331,3 +331,8 @@ code {
 .lesson p, h1, h2 {
   text-align: left
 }
+
+.task{
+  color: #FB7FC4;
+  font-weight: bold;
+}

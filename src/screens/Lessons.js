@@ -5,7 +5,7 @@ import { getLesson, getChapter, isLastChapter, isLastLesson } from '../lib/lesso
 import Lesson from '../components/Lesson'
 import { useStateValue } from '../components/StateProvider'
 import lessons from '../lib/lessons';
-import { RETRY, SUCCESS } from '../actions';
+import { RETRY, SUCCESS, REFRESH } from '../actions';
 
 export default (props) => {
   const [level, setLevel] = useState(1)
@@ -16,15 +16,16 @@ export default (props) => {
   const [{ hero, editor, enemy }, dispatch] = useStateValue();
   const objectivePosition = chapter.id !== 0 ? chapter.answer.player_position : null
   const [incorrect, setIncorrect] = useState(false)
-
   const playerReachedObjective = () => {
     let reachedObjective = true
-    Object.keys(objectivePosition).map(pos => {
-      if (hero.position[pos] !== objectivePosition[pos]) {
-        reachedObjective = false
-      }
-      return pos
-    })
+    if (objectivePosition) {
+      Object.keys(objectivePosition).map(pos => {
+        if (hero.position[pos] !== objectivePosition[pos]) {
+          reachedObjective = false
+        }
+        return pos
+      })
+    }
     return reachedObjective
   }
   if (objectivePosition !== null & editor.executed && !incorrect && !completed) {
@@ -42,9 +43,12 @@ export default (props) => {
     let nextChapter = nextLesson !== lesson ? nextLesson.chapters[0] : nextLesson.chapters[chapter.id + 1]
     setChapter(nextChapter)
     setLesson(nextLesson)
+    setCompleted(false)
+    setSuccess(false)
+    dispatch({ type: REFRESH })
     props.history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
   }
-  
+
   const tryAgain = () => {
     setIncorrect(false)
     dispatch({ type: RETRY })

@@ -26,31 +26,20 @@ const attack = () => {
         id: 1,
         title: "Create a Function",
         path: 'create-a-function',
-        content: `In order to move the character up the y axis, we must increment 'player.y' by 1.`,
-        task: 'Create a function named "moveUp" that moves the character up one tile.',
+        content: `In order to move the character, we need to call some functions. Before we start playing, let's create a simple function.`,
+        task: 'Create a function named "myFirstFunc" that prints "hello world".',
         example: `
-class Player {
-  constructor(x = 0, y = 0) {
-    this.x = x;
-    this.y = y;
-  }
+function exampleFunc() {
+  console.log("This is an example function!")
 }
-
-var player = new Player()
-
-// Move character to the right
-// function moveRight(){
-//  player.x += 1;
-//}
 `,
         answer: {
           text_match: [
-            `function moveUp(){player.y=player.y+1}`, //what's the best way to replace spaces while preserving spaces where they should be?
-            `function moveUp(){player.y+=1}`,
-            `let moveUp=()=>{player.y=player.y+1}`,
-            `let moveUp=()=>{player.y+=1}`,
-            `const moveUp=()=>{player.y=player.y+1}`,
-            `const moveUp=()=>{player.y+=1}` //any more?
+            `
+            function myFun() {
+              console.log("This is an example function!")
+            }
+            `
           ]
         }
       },

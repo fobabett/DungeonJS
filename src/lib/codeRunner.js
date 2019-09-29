@@ -4,7 +4,7 @@
  * dispatch in 500ms intervals
  */
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero'
-import { RUN, RUNNING } from '../actions'
+import { RUN, RUNNING, CONSOLE_LOG } from '../actions'
 
 const no = {}
 const queue = []
@@ -36,7 +36,6 @@ const run = (code, dispatch, props) => {
     
     try {
       eval(code)
-      console.log(code)
     } catch (err) {
     }
 

@@ -14,7 +14,7 @@ export default ({ lesson, chapter, next, completed, success, incorrect }) => (
           <SyntaxHighlighter language="javascript">
             {chapter.example}
           </SyntaxHighlighter> : null}
-        {chapter.task ? <p>{chapter.task}</p> : null}
+        {chapter.task ? <p className='task'>{chapter.task}</p> : null}
       </div>
       : null}
 

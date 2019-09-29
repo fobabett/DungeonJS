@@ -1,5 +1,5 @@
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero';
-import { TILES_GENERATED, RETRY } from '../actions'
+import { TILES_GENERATED, RETRY, REFRESH } from '../actions'
 
 export const initialHeroState = {
   initialPosition: {
@@ -54,6 +54,12 @@ const heroReducer = (state, action) => {
       };
 
     case RETRY:
+      return {
+        ...state,
+        position: state.initialPosition
+      }
+
+    case REFRESH:
       return {
         ...state,
         position: state.initialPosition
