@@ -75,7 +75,7 @@ function exampleFunc() {
     chapters: [
       {
         id: 0,
-        title: "",
+        title: "Coming Soon",
         path: 'loops',
         content: ``,
       },

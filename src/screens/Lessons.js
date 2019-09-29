@@ -46,7 +46,7 @@ export default (props) => {
   }
 
   const next = () => {
-    let nextLesson = isLastChapter(lesson, chapter) && !isLastLesson(lesson) ? getLesson(lessons[lesson.id].path) : lesson
+    let nextLesson = isLastChapter(lesson, chapter) && !isLastLesson(lesson) ? getLesson(`/lessons/${lessons[lesson.id].path}`) : lesson
     let nextChapter = nextLesson !== lesson ? nextLesson.chapters[0] : nextLesson.chapters[chapter.id + 1]
     setChapter(nextChapter)
     setLesson(nextLesson)
@@ -83,6 +83,7 @@ export default (props) => {
         tryAgain={tryAgain}
         next={next}
         placeholder={chapter.example}
+        lastLesson={lesson.id === 2 ? true : false} //temporary
       />
     </div>
 
