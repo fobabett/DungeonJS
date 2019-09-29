@@ -13,7 +13,7 @@ export default (props) => {
       <button onClick={lessons} className="button title-button">Lessons</button>
       <div>
         <button className="button title-button disabled">Play</button>
-        <span>(coming soon)</span>
+        <p className="coming-soon">(coming soon)</p>
       </div>
     </div>
   )
