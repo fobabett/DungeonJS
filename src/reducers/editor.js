@@ -1,4 +1,4 @@
-import { RUN, RUNNING, RETRY, SUCCESS, CONSOLE_LOG, RESET } from '../actions';
+import { RUN, RUNNING, RETRY, SUCCESS, ERROR, CONSOLE_LOG, RESET } from '../actions';
 
 export const initialEditorState = {
   executed: false,
