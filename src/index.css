@@ -68,6 +68,10 @@ code {
 .tile.x0.y7{
   top: 350px;
 }
+.tile.x0.y8{
+  top: 400px;
+}
+
 
 .tile.x1.y0{
   top: 0;
@@ -90,17 +94,22 @@ code {
   left: 50px;
 }
 .tile.x1.y5{
-  left: 50px;
   top: 250px;
+  left: 50px;
 }
 .tile.x1.y6{
-  left: 50px;
   top: 300px;
+  left: 50px;
 }
 .tile.x1.y7{
-  left: 50px;
   top: 350px;
+  left: 50px;
 }
+.tile.x1.y8{
+  top: 400px;
+  left: 50px;
+}
+
 
 .tile.x2.y0{
   top: 0;
@@ -123,17 +132,22 @@ code {
   left: 100px;
 }
 .tile.x2.y5{
-  left: 100px;
   top: 250px;
+  left: 100px;
 }
 .tile.x2.y6{
-  left: 100px;
   top: 300px;
+  left: 100px;
 }
 .tile.x2.y7{
-  left: 100px;
   top: 350px;
+  left: 100px;
 }
+.tile.x2.y8{
+  top: 400px;
+  left: 100px;
+}
+
 
 .tile.x3.y0{
   top: 0;
@@ -156,16 +170,20 @@ code {
   left: 150px;
 }
 .tile.x3.y5{
-  left: 150px;
   top: 250px;
+  left: 150px;
 }
 .tile.x3.y6{
-  left: 150px;
   top: 300px;
+  left: 150px;
 }
 .tile.x3.y7{
-  left: 150px;
   top: 350px;
+  left: 150px;
+}
+.tile.x3.y8{
+  top: 400px;
+  left: 150px;
 }
 
 .tile.x4.y0{
@@ -189,16 +207,20 @@ code {
   left: 200px;
 }
 .tile.x4.y5{
-  left: 200px;
   top: 250px;
+  left: 200px;
 }
 .tile.x4.y6{
-  left: 200px;
   top: 300px;
+  left: 200px;
 }
 .tile.x4.y7{
-  left: 200px;
   top: 350px;
+  left: 200px;
+}
+.tile.x4.y8{
+  top: 400px;
+  left: 200px;
 }
 
 .tile.x5.y0{
@@ -222,16 +244,20 @@ code {
   left: 250px;
 }
 .tile.x5.y5{
-  left: 250px;
   top: 250px;
+  left: 250px;
 }
 .tile.x5.y6{
-  left: 250px;
   top: 300px;
+  left: 250px;
 }
 .tile.x5.y7{
-  left: 250px;
   top: 350px;
+  left: 250px;
+}
+.tile.x5.y8{
+  top: 400px;
+  left: 250px;
 }
 
 .tile.x6.y0{
@@ -255,16 +281,20 @@ code {
   left: 300px;
 }
 .tile.x6.y5{
-  left: 300px;
   top: 250px;
+  left: 300px;
 }
 .tile.x6.y6{
-  left: 300px;
   top: 300px;
+  left: 300px;
 }
 .tile.x6.y7{
-  left: 300px;
   top: 350px;
+  left: 300px;
+}
+.tile.x6.y8{
+  top: 400px;
+  left: 300px;
 }
 
 .tile.x7.y0{
@@ -288,15 +318,19 @@ code {
   left: 350px;
 }
 .tile.x7.y5{
-  left: 350px;
   top: 250px;
+  left: 350px;
 }
 .tile.x7.y6{
-  left: 350px;
   top: 300px;
+  left: 350px;
 }
 .tile.x7.y7{
   top: 350px;
+  left: 350px;
+}
+.tile.x7.y8{
+  top: 400px;
   left: 350px;
 }
 
@@ -321,15 +355,19 @@ code {
   left: 400px;
 }
 .tile.x8.y5{
-  left: 400px;
   top: 250px;
+  left: 400px;
 }
 .tile.x8.y6{
-  left: 400px;
   top: 300px;
+  left: 400px;
 }
 .tile.x8.y7{
   top: 350px;
+  left: 400px;
+}
+.tile.x8.y8{
+  top: 400px;
   left: 400px;
 }
 
@@ -354,36 +392,19 @@ code {
   left: 450px;
 }
 .tile.x9.y5{
-  left: 450px;
   top: 250px;
+  left: 450px;
 }
 .tile.x9.y6{
-  left: 450px;
   top: 300px;
+  left: 450px;
 }
 .tile.x9.y7{
   top: 350px;
   left: 450px;
 }
-
-.tile.x10.y0{
-  top: 0;
-  left: 450px;
-}
-.tile.x10.y1{
-  top: 50px;
-  left: 450px;
-}
-.tile.x10.y2{
-  top: 100px;
-  left: 450px;
-}
-.tile.x10.y3{
-  top: 150px;
-  left: 450px;
-}
-.tile.x10.y4{
-  top: 200px;
+.tile.x9.y8{
+  top: 400px;
   left: 450px;
 }
 
@@ -439,10 +460,13 @@ code {
   letter-spacing: 1px;
 }
 .next-button{
-  width: 200px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
   background-color: #52DA76;
-  margin: 0 auto;
   border-bottom: 8px solid #39aa57;
+  z-index: 100;
 }
 
 .run-button:hover{
@@ -498,7 +522,23 @@ code {
 }
 
 .lesson p, h1, h2 {
-  text-align: left
+  text-align: left;
+}
+
+.lesson p{
+  font-size: 12px;
+  margin: 0;
+}
+
+h1{
+  font-size: 14px;
+  margin-bottom: 2px;
+  color: #DD527F;
+}
+
+h2{
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .task{
@@ -533,4 +573,7 @@ code {
 .title-button span{
   display: block;
   font-size: 8px;
+}
+.lesson pre{
+  font-size: 11px;
 }
