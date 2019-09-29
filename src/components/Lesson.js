@@ -25,6 +25,6 @@ export default ({ lesson, chapter, completed, success, incorrect }) => (
       <p className="result result-success">Success!</p>
     </div> : null}
 
-    <p>{chapter.completionMessage}</p>
+    {completed ? <p>{chapter.completionMessage}</p> : null}
   </div>
 )

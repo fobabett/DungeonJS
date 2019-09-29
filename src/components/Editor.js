@@ -9,6 +9,7 @@ import run from '../lib/codeRunner'
 
 export const Editor = ({ chapter, placeholder, tryAgain, incorrect, completed, success, next, lastLesson }) => {
   const [{ room, hero, editor }, dispatch] = useStateValue();
+  const [didInit, setDidInit] = useState(false)
   let [code, setCode] = useState()
   let [buttonLabel, setButtonLabel] = useState('Run')
   let options = {
@@ -22,7 +23,7 @@ export const Editor = ({ chapter, placeholder, tryAgain, incorrect, completed, s
     setCode(val.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$|(<script>)|eval|XMLHttpRequest|document\.write/gm, ""))
   }
 
-  const runCode = () => run(code, dispatch, { tiles: room.tiles, heroPosition: hero.position })
+  const runCode = () => run(code, chapter.precode, chapter.verify, dispatch, { tiles: room.tiles, heroPosition: hero.position })
 
   /* states:
    *   - Run
@@ -66,9 +67,11 @@ export const Editor = ({ chapter, placeholder, tryAgain, incorrect, completed, s
       </button>
   }
 
+  if(placeholder && !didInit) onChange(placeholder) || setDidInit(true)
+
   return (
     <div className='editor-container'>
-      <CodeMirror className='editor' options={options} onChange={onChange} />
+      <CodeMirror value={placeholder || ''} className='editor' options={options} onChange={onChange} />
       {!lastLesson ? runButton() : null}
     </div>
   )

@@ -4,7 +4,7 @@
  * dispatch in 500ms intervals
  */
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero'
-import { RUN, RUNNING, CONSOLE_LOG } from '../actions'
+import { RUN, RUNNING, RETRY, SUCCESS, CONSOLE_LOG } from '../actions'
 
 const no = {}
 const queue = []
@@ -25,18 +25,26 @@ const dequeue = (dispatch) => {
   }, 500)
 }
 
-const run = (code, dispatch, props) => {
+const run = (code, precode, verify, dispatch, props) => {
   ((document, window, global, $, ga, jQuery, XMLHttpRequest, Function, Object) => {
-    dispatch({ type: RUNNING })
+    dispatch({ type: RUNNING, code })
     const attack = () => addToQueue({ type: ATTACK, ...props })
     const moveUp = () => addToQueue({ type: MOVE_UP, ...props })
     const moveDown = () => addToQueue({ type: MOVE_DOWN, ...props })
     const moveLeft = () => addToQueue({ type: MOVE_LEFT, ...props })
     const moveRight = () => addToQueue({ type: MOVE_RIGHT, ...props })
-    
+
     try {
-      eval(code)
-    } catch (err) {
+      precode = precode || ''
+      verify = verify || ''
+      eval(precode + code + verify)
+
+      if(verify){
+        addToQueue({ type: SUCCESS })
+      }
+    } catch (error) {
+      console.error('codeRunner error', error)
+      addToQueue({ type: RETRY, error })
     }
 
   })(no, no, no, no, no, no, no, no, no)

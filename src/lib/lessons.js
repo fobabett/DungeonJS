@@ -20,38 +20,59 @@ function attack(){
 
 const attack = () => {
   // do stuff
-}`
+}`,
       },
       {
         id: 1,
         title: "Create a Function",
         path: 'create-a-function',
-        content: `In order to move the character, we need to call some functions. Before we start playing, let's create a simple function.`,
+        content: `This game uses predefined functions to control the character. Before you start playing, you should learn how to use functions. Let's start by creating a simple function.`,
         task: 'Create a function named "myFirstFunc" that prints "hello world".',
         example: `
+// This function prints "This is an example function!"
 function exampleFunc() {
   console.log("This is an example function!")
 }
 `,
-        answer: {
-          text_match: [
-            `
-            function myFun() {
-              console.log("This is an example function!")
-            }
-            `
-          ]
-        }
+        verify: `
+          if(myFirstFunc === undefined)
+            throw new Error('myFirstFunc does not exist or was misspelled')
+          if(typeof myFirstFunc !== 'function')
+            throw new Error('myFirstFunc is not a function')
+        `
       },
       {
         id: 2,
         title: "Invoking Functions",
         path: 'invoking-functions',
-        content: `Great job on creating your first function. When you executed the program, 
-        did you notice that nothing happend? That's because functions have to be invoked in order to do their job.
-        <Blah Blah explain function invocation + show example here>.`,
-        task: 'Move the character up one title by invoking the function you created previously.',
-        answer: { player_position: { y: 2 }}
+        content: `Great job on creating your first function. This function didn't actually print "hello world". This is because functions need to be invoked in order to do their job.
+        To call a function, enter it's name follwed by a pair of open and closed paraentheses:`,
+        task: 'Invoke myFirstFunc',
+        example: `
+        function exampleFunc() {
+          console.log("This is an example function!")
+        }
+        // Invoke the function
+        exampleFunc()
+        `,
+        placeholder:
+`function myFirstFunc() {
+  console.log("hello world")
+}
+`,
+        precode: `
+          let __myFirstFuncWasExecuted = false
+          const __realLog = console.log
+          console.log = function() {
+            __myFirstFuncWasExecuted = true;
+            __realLog(...arguments);
+          }
+        `,
+        verify: `
+          if(!__myFirstFuncWasExecuted)
+            throw new Error('myFirstFunc was not invoked or was misspelled')
+          console.log = __realLog
+        `
       },
       // cover arguments??
       {
@@ -59,14 +80,19 @@ function exampleFunc() {
         title: "Callenge",
         path: 'challenge',
         content: `Great job!
-        The game already has player movement functions built for you. <list funcs here>.`,
-        task: 'Using these functions, move the player to the objective.',
-        answer: { player_position: { }}, //should be objective position
+        The game has the following functions to controller the player:`,
+        example: `
+moveUp
+moveDown
+moveLeft
+moveRight`,
+        task: 'Using these functions, move the player to the ladder.',
+        answer: { player_position: { x:3, y: 1 } }, //should be objective position
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
-        In the next lesson, you will learn about loops and how you cn use them to complete this level.`
+        In the next lesson, you will learn about loops and how you cn use them to complete this level.`,
+        placeholder: ''
       },
     ],
-    // level: levels[1]
   },
   {
     id: 2,
