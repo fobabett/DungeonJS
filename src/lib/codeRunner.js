@@ -4,7 +4,7 @@
  * dispatch in 500ms intervals
  */
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero'
-import { RUN, RUNNING, RETRY, SUCCESS, CONSOLE_LOG } from '../actions'
+import { RUN, RUNNING, RETRY, SUCCESS, ERROR, CONSOLE_LOG } from '../actions'
 
 const no = {}
 const queue = []
@@ -44,7 +44,7 @@ const run = (code, precode, verify, dispatch, props) => {
       }
     } catch (error) {
       console.error('codeRunner error', error)
-      addToQueue({ type: RETRY, error })
+      addToQueue({ type: ERROR, error })
     }
 
   })(no, no, no, no, no, no, no, no, no)
