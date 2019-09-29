@@ -1,11 +1,10 @@
 import React from 'react';
+import door from '../../assets/door.png'
 
 const Door = (pos) => {
 
   return (
-    <div className={`tile tile-door x${pos.x} y${pos.y}`}>D
-    <p>x: {pos.x} y: {pos.y}</p>
-    </div>
+    <img className={`tile tile-door x${pos.x} y${pos.y}`} src={door} />
   );
 }
 
