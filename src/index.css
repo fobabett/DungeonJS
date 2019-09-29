@@ -467,18 +467,22 @@ code {
   z-index: 100;
 }
 
-.run-button:hover{
+.run-button:hover,
+.title-button:hover{
   background-color: #f5588a;
   cursor: pointer;
 }
 
 .run-button:focus,
-.run-button:active{
+.run-button:active,
+.title-button:focus,
+.title-button:active{
   background-color: #ce4471;
   border-bottom: 3px solid #8e2d4d;
   height: 55px;
 }
 
+.title-button.disabled
 .run-button.disabled{
   color: #ce4471;
   background-color: #8e2d4d;
@@ -500,4 +504,33 @@ code {
 .task{
   color: #FB7FC4;
   font-weight: bold;
+}
+
+.title-screen h1{
+  text-align: center;
+}
+.title-screen{
+  background-color: #24252F;
+  /* height: 100%; not working?*/
+  height: 100vh;
+  text-align: center;
+}
+.title-button{
+  background-color: #DD527F;
+  height: 50px;
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  border-bottom: 8px solid #8e2d4d;
+}
+.title-button.disabled{
+  margin-top: 20px;
+  color: #ce4471 !important;
+  background-color: #8e2d4d !important;
+  border-bottom-color: #5f162e !important;
+}
+
+.title-button span{
+  display: block;
+  font-size: 8px;
 }
