@@ -80,6 +80,7 @@ export default (props) => {
             completed={completed}
             incorrect={incorrect}
             success={success}
+            error={editor.error}
           />
         </div>
       </div>

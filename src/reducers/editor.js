@@ -23,6 +23,12 @@ const editorReducer = (state, action) => {
         code: action.code
       }
 
+    case ERROR:
+      return {
+        ...state,
+        error: action.error
+      }
+
     case RETRY:
       return {
         ...state,
