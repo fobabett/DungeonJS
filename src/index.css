@@ -267,17 +267,17 @@ code {
 }
 
 .hero.y0{
-  top: -50px;
+  top: -50px !important;
 }
 .hero.y1{
-  top: 0px;
+  top: 0px !important;;
 }
 .hero.y2{
-  top: 50px;
+  top: 50px !important;;
 }
 .hero.y3{
   top: 100px !important;
 }
 .hero.y4{
-  top: 150px;
+  top: 100px;
 }
