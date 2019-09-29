@@ -2,7 +2,6 @@ import lessons from './lessons'
 
 export const getLesson = (pathname) => {
   let path = pathname.split('/')[2]
-  console.log('path', path)
   if (!path) {
     return lessons[0]
   }
