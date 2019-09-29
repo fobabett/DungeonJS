@@ -36,6 +36,7 @@ export const Editor = ({ chapter, placeholder, tryAgain, incorrect, completed, s
     let action = runCode
     switch(true){
       case completed:
+        // label = chapter.completionMessage ? chapter.completionMessage : 'Next'
         label = chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'
         classNames.add('next-button')
         action = next
@@ -59,7 +60,7 @@ export const Editor = ({ chapter, placeholder, tryAgain, incorrect, completed, s
         classNames.add('run-button')
     }
     return <button
-        disabled={editor.executing}
+        disabled={!incorrect && editor.executing}
         className={Array.from(classNames).join(' ')}
         onClick={action}>{label}
       </button>
