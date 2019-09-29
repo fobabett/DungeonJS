@@ -5,7 +5,7 @@ import { getLesson, getChapter, isLastChapter, isLastLesson } from '../lib/lesso
 import Lesson from '../components/Lesson'
 import { useStateValue } from '../components/StateProvider'
 import lessons from '../lib/lessons';
-import { RETRY, SUCCESS, REFRESH } from '../actions';
+import { RETRY, SUCCESS, RESET } from '../actions';
 
 export default (props) => {
   const [level, setLevel] = useState(1)
@@ -28,7 +28,8 @@ export default (props) => {
     }
     return reachedObjective
   }
-  if (objectivePosition !== null & editor.executed && !incorrect && !completed) {
+
+  if (objectivePosition !== null && editor.executed && !incorrect && !completed) {
     if (playerReachedObjective()) {
       dispatch({ type: SUCCESS })
       setCompleted(true)
@@ -38,14 +39,18 @@ export default (props) => {
     }
   }
 
+  const reset = () => {
+    setCompleted(false)
+    setSuccess(false)
+    dispatch({ type: RESET })
+  }
+
   const next = () => {
     let nextLesson = isLastChapter(lesson, chapter) && !isLastLesson(lesson) ? getLesson(lessons[lesson.id].path) : lesson
     let nextChapter = nextLesson !== lesson ? nextLesson.chapters[0] : nextLesson.chapters[chapter.id + 1]
     setChapter(nextChapter)
     setLesson(nextLesson)
-    setCompleted(false)
-    setSuccess(false)
-    dispatch({ type: REFRESH })
+    reset()
     props.history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
   }
 
@@ -64,14 +69,21 @@ export default (props) => {
           <Lesson
             lesson={lesson}
             chapter={chapter}
-            next={next}
             completed={completed}
             incorrect={incorrect}
             success={success}
           />
         </div>
       </div>
-      <Editor incorrect={incorrect} tryAgain={tryAgain} placeholder={chapter.example} />
+      <Editor
+        chapter={chapter}
+        completed={completed}
+        incorrect={incorrect}
+        success={success}
+        tryAgain={tryAgain}
+        next={next}
+        placeholder={chapter.example}
+      />
     </div>
 
   );
