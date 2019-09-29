@@ -7,7 +7,7 @@ import '../../node_modules/codemirror/mode/javascript/javascript';
 import { useStateValue } from './StateProvider'
 import run from '../lib/codeRunner'
 
-export const Editor = ({ placeholder, tryAgain, incorrect }) => {
+export const Editor = ({ chapter, placeholder, tryAgain, incorrect, completed, success, next }) => {
   const [{ room, hero, editor }, dispatch] = useStateValue();
   let [code, setCode] = useState()
   let [buttonLabel, setButtonLabel] = useState('Run')
@@ -24,16 +24,45 @@ export const Editor = ({ placeholder, tryAgain, incorrect }) => {
 
   const runCode = () => run(code, dispatch, { tiles: room.tiles, heroPosition: hero.position })
 
-
+  /* states:
+   *   - Run
+   *   - Running
+   *   - Try Again
+   *   - Success
+   */
   const runButton = () => {
-    let className = 'button run-button'
-    if (incorrect) {
-      return <button className={className} onClick={tryAgain}>Try Again</button>;
-    } else {
-      const label = editor.executing ? 'Running' : 'Run'
-      if(editor.executing) className += ' disabled'
-      return <button disabled={editor.executing} className={className} onClick={runCode}>{label}</button>;
+    let classNames = new Set(['button'])
+    let label = 'Run'
+    let action = runCode
+    switch(true){
+      case completed:
+        label = chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'
+        classNames.add('next-button')
+        action = next
+        break
+      case success:
+        label = 'Success'
+        classNames.add('disabled')
+        break
+      case incorrect:
+        label = 'Try Again'
+        classNames.add('run-button')
+        action = tryAgain
+        break
+      case editor.executing:
+        label = 'Running'
+        classNames.add('disabled')
+        classNames.add('run-button')
+        action = () => {}
+        break
+      default:
+        classNames.add('run-button')
     }
+    return <button
+        disabled={editor.executing}
+        className={Array.from(classNames).join(' ')}
+        onClick={action}>{label}
+      </button>
   }
 
   return (
