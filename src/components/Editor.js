@@ -8,8 +8,7 @@ import { useStateValue } from './StateProvider'
 import run from '../lib/codeRunner'
 
 export const Editor = ({ placeholder }) => {
-
-  const [{ hero }, dispatch] = useStateValue();
+  const [{ room, hero, enemy }, dispatch] = useStateValue();
   let [code, setCode] = useState()
   let options = {
     lineNumbers: true,
@@ -21,7 +20,7 @@ export const Editor = ({ placeholder }) => {
     setCode(val.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$|(<script>)|eval|XMLHttpRequest|document\.write/gm, ""))
   }
 
-  const runCode = () => run(code, dispatch)
+  const runCode = () => run(code, dispatch, { tiles: room.tiles, heroPosition: hero.position })
 
   return (
     <div className='editor-container'>

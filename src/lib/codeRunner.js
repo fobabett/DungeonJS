@@ -8,15 +8,14 @@ import { RUN } from '../actions'
 
 const no = {}
 
-const run = (code, dispatch) => {
-
+const run = (code, dispatch, props) => {
   ((document, window, global, console, $, ga, jQuery,  XMLHttpRequest, Function, Object) => {
     dispatch({ type: RUN })
-    const attack = () => dispatch({ type: ATTACK })
-    const moveUp = () => dispatch({ type: MOVE_UP })
-    const moveDown = () => dispatch({ type: MOVE_DOWN })
-    const moveLeft = () => dispatch({ type: MOVE_LEFT })
-    const moveRight = () => dispatch({ type: MOVE_RIGHT })
+    const attack = () => dispatch({ type: ATTACK, ...props })
+    const moveUp = () => dispatch({ type: MOVE_UP, ...props })
+    const moveDown = () => dispatch({ type: MOVE_DOWN, ...props })
+    const moveLeft = () => dispatch({ type: MOVE_LEFT, ...props })
+    const moveRight = () => dispatch({ type: MOVE_RIGHT, ...props })
 
     try {
       eval(code)
@@ -24,6 +23,7 @@ const run = (code, dispatch) => {
     }
 
   })(no, no, no, no, no, no, no, no, no, no)
+
 }
 
 export default run

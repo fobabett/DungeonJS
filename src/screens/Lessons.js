@@ -8,20 +8,19 @@ import lessons from '../lib/lessons';
 import { RETRY, SUCCESS } from '../actions';
 
 export default (props) => {
-  console.log(props)
   const [level, setLevel] = useState(1)
   const [lesson, setLesson] = useState(getLesson(props.location.pathname))
   const [chapter, setChapter] = useState(getChapter(lesson, props.location.pathname))
   const [completed, setCompleted] = useState(chapter.id === 0 ? true : false)
   const [success, setSuccess] = useState(false)
-  const [{ hero, editor }, dispatch] = useStateValue();
+  const [{ hero, editor, enemy }, dispatch] = useStateValue();
   const objectivePosition = chapter.id !== 0 ? chapter.answer.player_position : null
   const [incorrect, setIncorrect] = useState(false)
+
 
   const playerReachedObjective = () => {
     let reachedObjective = true
     Object.keys(objectivePosition).map(pos => {
-      console.log(hero.position[pos], objectivePosition[pos])
       if (hero.position[pos] !== objectivePosition[pos]) {
         reachedObjective = false
       }

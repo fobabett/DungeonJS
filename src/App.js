@@ -10,13 +10,15 @@ import Lessons from './screens/Lessons'
 import './App.css';
 import { initialEditorState } from './reducers/editor';
 import { initialEnemyState } from './reducers/enemy'
+import { initialRoomState } from './reducers/room';
 
 const App = () => {
 
   const initialState = {
     hero: initialHeroState,
     editor: initialEditorState,
-    enemy: initialEnemyState
+    enemy: initialEnemyState,
+    room: initialRoomState
   }
 
   return (
