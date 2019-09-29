@@ -26,20 +26,19 @@ const attack = () => {
         id: 1,
         title: "Create a Function",
         path: 'create-a-function',
-        content: `In order to move the character, we need to call some functions. Before we start playing, let's create a simple function.`,
+        content: `This game uses predefined functions to control the character. Before you start playing, you should learn how to create and call a function. Let's start by creating a simple function.`,
         task: 'Create a function named "myFirstFunc" that prints "hello world".',
         example: `
+// This function prints "This is an example function!"
 function exampleFunc() {
   console.log("This is an example function!")
 }
 `,
         answer: {
           text_match: [
-            `
-            function myFun() {
-              console.log("This is an example function!")
-            }
-            `
+            "function myFirstFunc() {",
+            'console.log("hello world")',
+            "}"
           ]
         }
       },

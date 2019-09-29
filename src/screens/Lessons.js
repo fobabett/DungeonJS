@@ -16,6 +16,7 @@ export default (props) => {
   const [{ hero, editor, enemy }, dispatch] = useStateValue();
   const objectivePosition = chapter.id !== 0 ? chapter.answer.player_position : null
   const [incorrect, setIncorrect] = useState(false)
+
   const playerReachedObjective = () => {
     let reachedObjective = true
     if (objectivePosition) {
@@ -28,13 +29,38 @@ export default (props) => {
     }
     return reachedObjective
   }
-  if (objectivePosition !== null & editor.executed && !incorrect && !completed) {
-    if (playerReachedObjective()) {
-      dispatch({ type: SUCCESS })
-      setCompleted(true)
-      setSuccess(true)
-    } else {
-      setIncorrect(true)
+
+  const conainsCodeRequirement = () => { 
+    // @TODO: refactor: user's code may be correct but contains different spacing
+    // possibly triggers false success
+    // refactor
+    let containsCode = true
+    // let lines = editor.code.split('\n')
+    chapter.answer.text_match.map(line => {
+      if (!editor.code.includes(line)) {
+        containsCode = false
+      }
+    })
+    return containsCode
+  }
+
+  if (editor.executed && !incorrect && !completed) {
+    if (objectivePosition) {
+      if (playerReachedObjective()) {
+        dispatch({ type: SUCCESS })
+        setCompleted(true)
+        setSuccess(true)
+      } else {
+        setIncorrect(true)
+      }
+    }
+    else if (chapter.answer && chapter.answer.text_match) {
+      if(conainsCodeRequirement()) {
+        setCompleted(true)
+        setSuccess(true)
+      } else {
+        setIncorrect(true)
+      }
     }
   }
 
