@@ -585,6 +585,13 @@ h2{
 .title-screen h1{
   text-align: center;
 }
+
+.title-graphic{
+  width: 400px;
+  height: auto;
+  margin-top: 50px;
+}
+
 .title-screen{
   background-color: #24252F;
   /* height: 100%; not working?*/
