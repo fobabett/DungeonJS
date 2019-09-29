@@ -90,14 +90,21 @@ export default (props) => {
           <Lesson
             lesson={lesson}
             chapter={chapter}
-            next={next}
             completed={completed}
             incorrect={incorrect}
             success={success}
           />
         </div>
       </div>
-      <Editor incorrect={incorrect} tryAgain={tryAgain} placeholder={chapter.placeholder} />
+      <Editor
+        chapter={chapter}
+        completed={completed}
+        incorrect={incorrect}
+        success={success}
+        tryAgain={tryAgain}
+        next={next}
+        placeholder={chapter.placeholder}
+      />
     </div>
 
   );
