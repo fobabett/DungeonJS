@@ -8,7 +8,6 @@ const Room = ({ level }) => {
 
   const [{ hero }, dispatch] = useStateValue();
   const { playerPos, tiles } = generateTiles(level)
-console.log(playerPos)
   useEffect(() => {
     dispatch({ type: TILES_GENERATED, position: playerPos, tiles })
   }, [])

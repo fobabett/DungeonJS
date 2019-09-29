@@ -7,15 +7,30 @@ import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/he
 import { RUN } from '../actions'
 
 const no = {}
+const queue = []
+
+const addToQueue = (action) => {
+  queue.push(action)
+}
+
+const dequeue = (dispatch) => {
+  setTimeout(() => {
+    if (queue.length > 0) {
+      dispatch(queue[0])
+      queue.splice(0, 1)
+      dequeue(dispatch)
+    }
+  }, 500)
+}
 
 const run = (code, dispatch, props) => {
-  ((document, window, global, console, $, ga, jQuery,  XMLHttpRequest, Function, Object) => {
+  ((document, window, global, console, $, ga, jQuery, XMLHttpRequest, Function, Object) => {
     dispatch({ type: RUN })
-    const attack = () => dispatch({ type: ATTACK, ...props })
-    const moveUp = () => dispatch({ type: MOVE_UP, ...props })
-    const moveDown = () => dispatch({ type: MOVE_DOWN, ...props })
-    const moveLeft = () => dispatch({ type: MOVE_LEFT, ...props })
-    const moveRight = () => dispatch({ type: MOVE_RIGHT, ...props })
+    const attack = () => addToQueue({ type: ATTACK, ...props })
+    const moveUp = () => addToQueue({ type: MOVE_UP, ...props })
+    const moveDown = () => addToQueue({ type: MOVE_DOWN, ...props })
+    const moveLeft = () => addToQueue({ type: MOVE_LEFT, ...props })
+    const moveRight = () => addToQueue({ type: MOVE_RIGHT, ...props })
 
     try {
       eval(code)
@@ -23,7 +38,7 @@ const run = (code, dispatch, props) => {
     }
 
   })(no, no, no, no, no, no, no, no, no, no)
-
+  dequeue(dispatch)
 }
 
 export default run
