@@ -15,7 +15,7 @@ export default (props) => {
   const [completed, setCompleted] = useState(chapter.id === 0 ? true : false)
   const [success, setSuccess] = useState(false)
   const [{ hero, editor }, dispatch] = useStateValue();
-  const objectivePosition = chapter.answer.player_position || {}
+  const objectivePosition = chapter.id !== 0 ? chapter.answer.player_position : null
   const [incorrect, setIncorrect] = useState(false)
 
   const playerReachedObjective = () => {
@@ -30,7 +30,7 @@ export default (props) => {
     return reachedObjective
   }
   
-  if (editor.executed && !incorrect && !completed) {
+  if (objectivePosition & editor.executed && !incorrect && !completed) {
     if (playerReachedObjective()) {
       dispatch({ type: SUCCESS })
       setCompleted(true)
