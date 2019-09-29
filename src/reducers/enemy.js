@@ -42,7 +42,8 @@ const getCoordinate = (currentPos, heroPosition, axis) => currentPos[axis] > her
 
 const moveEnemy = (state, heroPosition, tiles) => {
   let currentPos = state.position
-  if (currentPos === null) return
+  if (currentPos === null) return currentPos
+
   let axis = randomAxis(currentPos) //returns 'x' or 'y'
   let newPos = { ...currentPos, [axis]: getCoordinate(currentPos, heroPosition, axis) }
 
