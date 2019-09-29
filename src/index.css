@@ -523,7 +523,7 @@ code {
 
 .lesson p{
   font-size: 12px;
-  margin: 0;
+  margin-top: 10px;
 }
 
 h1{
@@ -538,8 +538,44 @@ h2{
 }
 
 .task{
-  color: #FB7FC4;
+  color: #2c6b75;
+  border: 1px solid #46a3a7;
+  background-color: #76D6CE;
+  padding: 18px 14px;
   font-weight: bold;
+  border-radius: 2px;
+  position: relative;
+}
+
+.task:before{
+  content: "TASK";
+  position: absolute;
+  font-size: 8px;
+  top: 0;
+  left: 0;
+  padding: 1px 5px 1px 3px;
+  background-color: #46a3a7;
+  color: #76D6CE;
+  border-bottom-right-radius: 2px;
+  border-top-left-radius: 1px;
+}
+
+.result{
+  color: #DB5480;
+  background-color: #ffbad0;
+  padding: 10px 14px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.result-incorrect{
+  color: #bf3804;
+  background-color: #fbb8a4;
+}
+
+.result-success{
+  color: #287b3e;
+  background-color: #c9ffd7;
 }
 
 .lesson pre{

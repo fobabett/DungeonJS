@@ -18,11 +18,11 @@ export default ({ lesson, chapter, completed, success, incorrect }) => (
       : null}
 
     {incorrect ? <div>
-      <p>Incorrect</p>
+      <p className="result result-incorrect">Incorrect</p>
     </div> : null}
 
     {success ? <div>
-      <p>Success</p>
+      <p className="result result-success">Success!</p>
     </div> : null}
 
     <p>{chapter.completionMessage}</p>
