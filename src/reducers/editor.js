@@ -1,7 +1,8 @@
-import { RUN, RETRY, SUCCESS } from '../actions';
+import { RUN, RUNNING,  RETRY, SUCCESS } from '../actions';
 
 export const initialEditorState = {
-  executed: false
+  executed: false,
+  executing: false
 };
 
 const editorReducer = (state, action) => {
@@ -11,6 +12,12 @@ const editorReducer = (state, action) => {
         ...state,
         executed: true
       };
+    
+    case RUNNING:
+      return {
+        ...state,
+        executing: true
+      }
 
     case RETRY:
       return {

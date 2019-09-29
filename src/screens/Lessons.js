@@ -21,6 +21,7 @@ export default (props) => {
   const playerReachedObjective = () => {
     let reachedObjective = true
     Object.keys(objectivePosition).map(pos => {
+      console.log(hero.position[pos], objectivePosition[pos])
       if (hero.position[pos] !== objectivePosition[pos]) {
         reachedObjective = false
       }
@@ -28,8 +29,7 @@ export default (props) => {
     })
     return reachedObjective
   }
-  
-  if (objectivePosition & editor.executed && !incorrect && !completed) {
+  if (objectivePosition !== null & editor.executed && !incorrect && !completed) {
     if (playerReachedObjective()) {
       dispatch({ type: SUCCESS })
       setCompleted(true)

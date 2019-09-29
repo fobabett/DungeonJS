@@ -62,7 +62,7 @@ var player = new Player()
         did you notice that nothing happend? That's because functions have to be invoked in order to do their job.
         <Blah Blah explain function invocation + show example here>.`,
         task: 'Move the character up one title by invoking the function you created previously.',
-        answer: { player_position: { y: 4 }}
+        answer: { player_position: { y: 2 }}
       },
       // cover arguments??
       {

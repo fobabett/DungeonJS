@@ -4,7 +4,7 @@
  * dispatch in 500ms intervals
  */
 import { ATTACK, MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } from '../actions/hero'
-import { RUN } from '../actions'
+import { RUN, RUNNING } from '../actions'
 
 const no = {}
 const queue = []
@@ -19,13 +19,15 @@ const dequeue = (dispatch) => {
       dispatch(queue[0])
       queue.splice(0, 1)
       dequeue(dispatch)
+    } else {
+      dispatch({ type: RUN })
     }
   }, 500)
 }
 
 const run = (code, dispatch, props) => {
   ((document, window, global, console, $, ga, jQuery, XMLHttpRequest, Function, Object) => {
-    dispatch({ type: RUN })
+    dispatch({ type: RUNNING })
     const attack = () => addToQueue({ type: ATTACK, ...props })
     const moveUp = () => addToQueue({ type: MOVE_UP, ...props })
     const moveDown = () => addToQueue({ type: MOVE_DOWN, ...props })
