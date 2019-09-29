@@ -81,7 +81,7 @@ moveDown
 moveLeft
 moveRight`,
         task: 'Using these functions, move the player to the objective.',
-        answer: { player_position: {} }, //should be objective position
+        answer: { player_position: { x:3, y: 1 } }, //should be objective position
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
         In the next lesson, you will learn about loops and how you cn use them to complete this level.`
       },
