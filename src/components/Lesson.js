@@ -23,6 +23,6 @@ export default ({ lesson, chapter, next, completed, success, incorrect, tryAgain
     </div> : null}
 
     <p>{chapter.completionMessage}</p>
-    {completed ? <button onClick={next}>{chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'}</button> : null}
+    {completed ? <button className="button next-button" onClick={next}>{chapter.completionMessage ? 'Next Lesson: Loops' : 'Next'}</button> : null}
   </div>
 )

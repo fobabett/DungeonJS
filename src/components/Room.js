@@ -22,7 +22,7 @@ const Room = ({ level }) => {
   return (
     // @TODO RESTRUCTURE THIS POC
     <div className="game">
-      <h2>Level: {level}</h2>
+      <h2 className="level">Level: {level}</h2>
       <div className="room">
         {grid}
         <Hero pos={hero.position} />

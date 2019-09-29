@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,h2 {
+  margin: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -25,6 +29,15 @@ code {
   height: 50px;
   margin: 0;
   position: absolute;
+}
+
+.level{
+  top: 0;
+  left: 5px;
+  color: #FDF7EE;
+  font-size: 12px;
+  position: absolute;
+  z-index: 1;
 }
 
 .tile p{
@@ -280,4 +293,34 @@ code {
 }
 .hero.y4{
   top: 100px;
+}
+
+.button{
+  height: 50px;
+  border: none;
+  color: white;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+.next-button{
+  width: 200px;
+    background-color: #52DA76;
+    margin: 0 auto;
+}
+.run-button{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 58%;
+  height: 50px;
+  background: #FD7CC5;
+}
+
+.lesson{
+  padding: 20px;
+  text-align: center;
+}
+
+.lesson p, h1, h2 {
+  text-align: left
 }

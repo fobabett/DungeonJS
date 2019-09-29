@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import CodeMirror from 'react-codemirror';
 import "../../node_modules/codemirror/lib/codemirror.css";
 import "../../node_modules/codemirror/theme/dracula.css";
@@ -13,7 +13,8 @@ export const Editor = ({ placeholder }) => {
   let options = {
     lineNumbers: true,
     mode: 'javascript',
-    theme: 'dracula'
+    theme: 'dracula',
+    height: '100%'
   }
 
   const onChange = (val) => {
@@ -25,7 +26,7 @@ export const Editor = ({ placeholder }) => {
   return (
     <div className='editor-container'>
       <CodeMirror value={placeholder || ''} className='editor' options={options} onChange={onChange} />
-      {!editor.executing ? <button onClick={runCode}>Run</button> : null}
+      {!editor.executing ? <button className='button run-button' onClick={runCode}>Run</button> : null}
     </div>
   )
 }
