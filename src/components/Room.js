@@ -12,10 +12,10 @@ const Room = ({ level }) => {
     dispatch({ type: TILES_GENERATED, position: playerPos, tiles })
   }, [])
 
-  const grid = tiles.map((row, y) => console.log(row) ||
-    <div className="room-tile-row">
+  const grid = tiles.map((row, y) =>
+    <div key={y} className="room-tile-row">
       {row
-        .map((Tile, x) => <Tile x={x} y={y} />)
+        .map((Tile, x) => <Tile key={x} x={x} y={y} />)
       }
     </div>
   )

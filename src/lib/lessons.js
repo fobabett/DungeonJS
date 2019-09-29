@@ -17,10 +17,10 @@ const lessons = [
 function attack(){
   // do stuff
 }
-// or
-// const attack = () => {
+
+const attack = () => {
   // do stuff
-//}`
+}`
       },
       {
         id: 1,

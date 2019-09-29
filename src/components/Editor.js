@@ -25,7 +25,7 @@ export const Editor = ({ placeholder, tryAgain, incorrect }) => {
 
   return (
     <div className='editor-container'>
-      <CodeMirror value={placeholder || ''} className='editor' options={options} onChange={onChange} />
+      <CodeMirror className='editor' options={options} onChange={onChange} />
       {!incorrect
         ? <button disabled={editor.executing} className={`button run-button ${editor.executing ? 'disabaled' : ''}`} onClick={runCode}>{editor.executing ? 'Running' : 'Run'}</button>
         : <button className="button run-button" onClick={tryAgain}>Try Again</button>}

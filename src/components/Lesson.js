@@ -1,4 +1,5 @@
 import React from 'react'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 export default ({ lesson, chapter, next, completed, success, incorrect }) => (
   <div className="lesson">
@@ -9,6 +10,10 @@ export default ({ lesson, chapter, next, completed, success, incorrect }) => (
       <div>
         <p>{chapter.content}</p>
         <br></br>
+        {chapter.example ?
+          <SyntaxHighlighter language="javascript">
+            {chapter.example}
+          </SyntaxHighlighter> : null}
         {chapter.task ? <p>{chapter.task}</p> : null}
       </div>
       : null}

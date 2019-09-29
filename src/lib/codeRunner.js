@@ -26,20 +26,21 @@ const dequeue = (dispatch) => {
 }
 
 const run = (code, dispatch, props) => {
-  ((document, window, global, console, $, ga, jQuery, XMLHttpRequest, Function, Object) => {
+  ((document, window, global, $, ga, jQuery, XMLHttpRequest, Function, Object) => {
     dispatch({ type: RUNNING })
     const attack = () => addToQueue({ type: ATTACK, ...props })
     const moveUp = () => addToQueue({ type: MOVE_UP, ...props })
     const moveDown = () => addToQueue({ type: MOVE_DOWN, ...props })
     const moveLeft = () => addToQueue({ type: MOVE_LEFT, ...props })
     const moveRight = () => addToQueue({ type: MOVE_RIGHT, ...props })
-
+    
     try {
       eval(code)
+      console.log(code)
     } catch (err) {
     }
 
-  })(no, no, no, no, no, no, no, no, no, no)
+  })(no, no, no, no, no, no, no, no, no)
   dequeue(dispatch)
 }
 

@@ -319,7 +319,10 @@ code {
 .run-button.disabled{
   background-color: #A45580;
 }
-
+.lesson-container{
+  height: 255px;
+  overflow: scroll;
+}
 .lesson{
   padding: 20px;
   text-align: center;
