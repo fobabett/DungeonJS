@@ -1,6 +1,6 @@
 // import levels from './levels'
 
-const lessons = [
+export default const lessons = [
   {
     id: 1,
     title: "Functions",
@@ -21,6 +21,17 @@ function attack(){
 const attack = () => {
   // do stuff
 }`,
+
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
       {
         id: 1,
@@ -39,7 +50,17 @@ function exampleFunc() {
             throw new Error('myFirstFunc does not exist or was misspelled')
           if(typeof myFirstFunc !== 'function')
             throw new Error('myFirstFunc is not a function')
-        `
+        `,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
       {
         id: 2,
@@ -72,7 +93,17 @@ function exampleFunc() {
           if(!__myFirstFuncWasExecuted)
             throw new Error('myFirstFunc was not invoked or was misspelled')
           console.log = __realLog
-        `
+        `,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
       // cover arguments??
       {
@@ -90,7 +121,17 @@ moveRight`,
         answer: { player_position: { x:3, y: 1 } }, //should be objective position
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
         In the next lesson, you will learn about loops and how you cn use them to complete this level.`,
-        placeholder: ''
+        placeholder: '',
+        map: `
+##########
+###D######
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
     ],
   },
@@ -104,9 +145,71 @@ moveRight`,
         title: "Coming Soon",
         path: 'loops',
         content: ``,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
+
       },
     ]
   }
 ]
 
-export default lessons
+const DEPRECATED_levels = [
+
+// level 0
+// learn to move forward
+// eslint-disable-next-line
+`
+##########
+####D#####
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
+
+// level 1
+// learn to move sideward
+// eslint-disable-next-line
+`
+##########
+###D######
+##########
+#######*##
+##########
+##########
+##########
+##########
+`,
+
+// level 2
+// learn to not fall
+// eslint-disable-next-line
+`
+..........
+.D###.....
+....#.....
+....#.....
+....*.....
+..........
+..........
+..........
+`,
+
+
+// level 3
+// eslint-disable-next-line
+
+
+
+// remove the first new line
+].map(asciiRoom => asciiRoom.substr(1))
