@@ -2,6 +2,21 @@
 
 const lessons = [
   {
+    id: 0,
+    title: "What is JavaScript?",
+    path: 'intro',
+    chapters: [
+      {
+        id: 0,
+        title: "What is JavaScript",
+        path: 'what-is-javascript',
+        content: `JavaScript is the programming language of the web. These lessons will teach you the basics of JavaScript.
+        
+        Click Next to get started!`,
+      }
+    ]
+  },
+  {
     id: 1,
     title: "Functions",
     path: 'functions',
@@ -13,14 +28,14 @@ const lessons = [
         content: `A JavaScript function is a block of code designed to perform a particular task.
         A JavaScript function is executed when "something" invokes it (calls it).`,
         example: `
-// example
-function attack(){
-  // do stuff
-}
+  // example
+  function attack(){
+    // do stuff
+  }
 
-const attack = () => {
-  // do stuff
-}`,
+  const attack = () => {
+    // do stuff
+  }`
       },
       {
         id: 1,
