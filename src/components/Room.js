@@ -4,10 +4,10 @@ import Hero from './characters/Hero'
 import { TILES_GENERATED } from '../actions'
 import { useStateValue } from './StateProvider'
 
-const Room = ({ level }) => {
+const Room = ({ level, lesson }) => {
 
   const [{ hero }, dispatch] = useStateValue();
-  const { playerPos, tiles } = generateTiles(level)
+  const { playerPos, tiles } = generateTiles(level, lesson)
   useEffect(() => {
     dispatch({ type: TILES_GENERATED, position: playerPos, tiles })
   }, [])

@@ -1,6 +1,6 @@
 // import levels from './levels'
 
-const lessons = [
+export const lessons = [
   {
     id: 1,
     title: "What is JavaScript?",
@@ -14,7 +14,17 @@ const lessons = [
         
         Click Next to get started!`,
       }
-    ]
+    ],
+    map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
   },
   {
     id: 2,
@@ -41,7 +51,16 @@ For this lesson, we'll be looking looking at console.log().`,
         verify: ``,
         completionMessage: `Nice work! You wrote your first console message. There are other console methods. Check out https://www.w3schools.com/jsref/obj_console.asp to learn more.`
       },
-    ]
+    ],
+    map:`
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########`,
   },
   {
     id: 3,
@@ -91,7 +110,16 @@ var knight_name = "JS Knight";
         verify: ``, //TODO: verify
         completionMessage: `Nice work! You created your first string variable. A string is one of the JavaScript Data Types. You'll learn more about Data Dypes in the next lesson.`
       },
-    ]
+    ],
+    map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########`,
   },
   {
     id: 4,
@@ -105,7 +133,16 @@ var knight_name = "JS Knight";
         content: '',
         example: ``
       }
-    ]
+    ],
+    map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########`,
   },
   {
     id: 5,
@@ -119,7 +156,16 @@ var knight_name = "JS Knight";
         content: '',
         example: ``
       }
-    ]
+    ],
+    map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########`,
   },
   {
     id: 5,
@@ -133,7 +179,16 @@ var knight_name = "JS Knight";
         content: '',
         example: ``
       }
-    ]
+    ],
+    map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########`,
   },
   {
     id: 6,
@@ -152,9 +207,9 @@ var knight_name = "JS Knight";
     // do stuff
   }
 
-  const attack = () => {
-    // do stuff
-  }`
+const attack = () => {
+  // do stuff
+}`,
       },
       {
         id: 1,
@@ -173,7 +228,17 @@ function exampleFunc() {
             throw new Error('myFirstFunc does not exist or was misspelled')
           if(typeof myFirstFunc !== 'function')
             throw new Error('myFirstFunc is not a function')
-        `
+        `,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
       {
         id: 2,
@@ -206,7 +271,17 @@ function exampleFunc() {
           if(!__myFirstFuncWasExecuted)
             throw new Error('myFirstFunc was not invoked or was misspelled')
           console.log = __realLog
-        `
+        `,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
       // cover arguments??
       {
@@ -224,9 +299,28 @@ moveRight`,
         answer: { player_position: { x:3, y: 1 } }, //should be objective position
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
         In the next lesson, you will learn about loops and how you cn use them to complete this level.`,
-        placeholder: ''
+        placeholder: '',
+        map: `
+##########
+###D######
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
     ],
+    map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########`,
   },
   {
     id: 7,
@@ -239,8 +333,68 @@ moveRight`,
         path: 'intro',
         content: ``,
       },
-    ]
+    ],
+    map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########`,
   }
 ]
 
-export default lessons
+const DEPRECATED_levels = [
+
+// level 0
+// learn to move forward
+// eslint-disable-next-line
+`
+##########
+####D#####
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
+
+// level 1
+// learn to move sideward
+// eslint-disable-next-line
+`
+##########
+###D######
+##########
+#######*##
+##########
+##########
+##########
+##########
+`,
+
+// level 2
+// learn to not fall
+// eslint-disable-next-line
+`
+..........
+.D###.....
+....#.....
+....#.....
+....*.....
+..........
+..........
+..........
+`,
+
+
+// level 3
+// eslint-disable-next-line
+
+
+
+// remove the first new line
+].map(asciiRoom => asciiRoom.substr(1))
