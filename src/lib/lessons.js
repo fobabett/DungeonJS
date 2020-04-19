@@ -2,7 +2,7 @@
 
 const lessons = [
   {
-    id: 0,
+    id: 1,
     title: "What is JavaScript?",
     path: 'intro',
     chapters: [
@@ -17,7 +17,7 @@ const lessons = [
     ]
   },
   {
-    id: 1,
+    id: 2,
     title: "Console Object",
     path: 'console',
     chapters: [
@@ -44,7 +44,7 @@ For this lesson, we'll be looking looking at console.log().`,
     ]
   },
   {
-    id: 1,
+    id: 3,
     title: "Variables",
     path: 'variables',
     chapters: [
@@ -86,7 +86,7 @@ var knight_name = "JS Knight";
         path: 'console-variable',
         content: ``,
         task: 'Using the console.log() method, print your variable knight_name to the console.',
-        example: ``,
+        example: ``, 
         placeholder: 'var knight_name = "JS Knight";',
         verify: ``, //TODO: verify
         completionMessage: `Nice work! You created your first string variable. A string is one of the JavaScript Data Types. You'll learn more about Data Dypes in the next lesson.`
@@ -94,7 +94,49 @@ var knight_name = "JS Knight";
     ]
   },
   {
-    id: 1,
+    id: 4,
+    title: "Data Types",
+    path: 'data-types',
+    chapters: [
+      {
+        id: 0,
+        title: "What are JavaScript Data Types?",
+        path: 'intro',
+        content: '',
+        example: ``
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Operators",
+    path: 'operators',
+    chapters: [
+      {
+        id: 0,
+        title: "What are JavaScript Operators?",
+        path: 'intro',
+        content: '',
+        example: ``
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Conditionals",
+    path: 'conditionals',
+    chapters: [
+      {
+        id: 0,
+        title: "What are Conditionals?",
+        path: 'intro',
+        content: '',
+        example: ``
+      }
+    ]
+  },
+  {
+    id: 6,
     title: "Functions",
     path: 'functions',
     chapters: [
@@ -187,14 +229,14 @@ moveRight`,
     ],
   },
   {
-    id: 2,
+    id: 7,
     title: "Loops",
     path: 'loops',
     chapters: [
       {
         id: 0,
         title: "Coming Soon",
-        path: 'loops',
+        path: 'intro',
         content: ``,
       },
     ]
