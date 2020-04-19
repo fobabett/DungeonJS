@@ -18,6 +18,7 @@
  */
 
 import { levels } from './game-levels'
+import { lessons } from './lessons'
 import None from '../components/tiles/None'
 import Floor from '../components/tiles/Floor'
 import Door from '../components/tiles/Door'
@@ -59,13 +60,20 @@ const findPlayer = (level, asciiMap) => {
   }
 }
 
-export const generateTiles = level => ({
-  tiles: parseTiles(
-    levels[level]
-  ),
-  playerPos: findPlayer(
-    level,
-    levels[level]
-  )
-})
+export const generateTiles = (level, lesson) => {
+  console.log(lesson)
+  if (level || lesson) {
+    return {
+      tiles: parseTiles(
+        level ? levels[level].room : lesson.chapters[0].map
+      ),
+      playerPos: findPlayer(
+        level ? level : lesson.id,
+        level ? levels[level] : lesson.chapters[0].map
+      )
+    }
+  } else {
+    return { tiles: null, playerPos: null }
+  }
+}
 

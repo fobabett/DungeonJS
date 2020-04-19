@@ -72,7 +72,7 @@ export default (props) => {
     <div className="container">
       <div className="game-container">
         <div className="game">
-          <Room level={level} />
+          <Room lesson={lesson} />
         </div>
         <div className="lesson-container">
           <Lesson
