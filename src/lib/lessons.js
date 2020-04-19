@@ -18,6 +18,33 @@ const lessons = [
   },
   {
     id: 1,
+    title: "What is the Console?",
+    path: 'console',
+    chapters: [
+      {
+        id: 0,
+        title: "What is the Console?",
+        path: 'intro',
+        content: `The Console Object lets you access your internet brower's debugging console.
+For this lesson, we'll be looking looking at console.log().`,
+      },
+      {
+        id: 1,
+        title: "Write a Message to the Console",
+        path: 'console-log',
+        content: `The console.log() method writes messages to the browser console.`,
+        task: 'Using the console.log() method, write "My name is NAME!". Replace NAME with your name.',
+        example: `
+// This function prints the message "My name is JS Knight!"
+  console.log("My name is JS Knight!")
+`,
+        verify: ``,
+        completionMessage: `Nice work! You wrote your first console message. There are other console methods. Check out https://www.w3schools.com/jsref/obj_console.asp to learn more.`
+      },
+    ]
+  },
+  {
+    id: 1,
     title: "Functions",
     path: 'functions',
     chapters: [
