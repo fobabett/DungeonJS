@@ -18,43 +18,6 @@ const lessons = [
   },
   {
     id: 1,
-    title: "Variables",
-    path: 'variables',
-    chapters: [
-      {
-        id: 0,
-        title: "What are Varaibles?",
-        path: 'intro',
-        content: 'A JavaScript variable is a container that stores a value.\n A variable is created by writing the keyword var, followed by the variable name. Then you set the value by using the equal to operator (=).',
-        example: `
-// creates a variable named 'health' with the number value set to 100        
-var health = 100;
-
-// creates a variable named 'hero_name' with the string value set to "JS Knight"      
-var hero_name = "JS Knight";
-        `
-      },
-      {
-        id: 1,
-        title: "Create a Variable",
-        path: 'create-a-variable',
-        content: ``,
-        task: 'Create a variable knight_name and set it to your name.',
-        example: `
-var knight_name = "JS Knight";
-`,
-      verify: `
-      if(hero_name === undefined)
-        throw new Error('Did you create a variable name "hero_name"?')
-      if(typeof hero_name !== 'string')
-        throw new Error('set hero_name to "your name".')
-      `,
-        completionMessage: `Nice work! You created your first string variable. A string is one of the JavaScript Data Types. You'll learn more about Data Dypes in the next lesson.`
-      },
-    ]
-  },
-  {
-    id: 1,
     title: "Console Object",
     path: 'console',
     chapters: [
@@ -77,6 +40,56 @@ For this lesson, we'll be looking looking at console.log().`,
 `,
         verify: ``,
         completionMessage: `Nice work! You wrote your first console message. There are other console methods. Check out https://www.w3schools.com/jsref/obj_console.asp to learn more.`
+      },
+    ]
+  },
+  {
+    id: 1,
+    title: "Variables",
+    path: 'variables',
+    chapters: [
+      {
+        id: 0,
+        title: "What are Varaibles?",
+        path: 'intro',
+        content: 'A JavaScript variable is a container that stores a value.\n A variable is created by writing the keyword var, followed by the variable name. Then you set the value by using the equal to operator (=).',
+        example: `
+// creates a variable named 'health' with the number value set to 100        
+var health = 100;
+
+// creates a variable named 'knight_name' with the string value set to "JS Knight"      
+var knight_name = "JS Knight";
+
+// creates a variable named 'knightName' with the string value set to "JS Knight"      
+var knightName = "JS Knight";
+        `
+      },
+      {
+        id: 1,
+        title: "Create a Variable",
+        path: 'create-a-variable',
+        content: ``,
+        task: 'Create a variable knight_name and set it to your name.',
+        example: `
+var knight_name = "JS Knight";
+`,
+      verify: `
+      if(knight_name === undefined)
+        throw new Error('Did you create a variable name "knight_name"?')
+      if(typeof knight_name !== 'string')
+        throw new Error('set knight_name to "your name".')
+      `
+      },
+      {
+        id: 2,
+        title: "Print Your Variable to the Console",
+        path: 'console-variable',
+        content: ``,
+        task: 'Using the console.log() method, print your variable knight_name to the console.',
+        example: ``,
+        placeholder: 'var knight_name = "JS Knight";',
+        verify: ``, //TODO: verify
+        completionMessage: `Nice work! You created your first string variable. A string is one of the JavaScript Data Types. You'll learn more about Data Dypes in the next lesson.`
       },
     ]
   },
