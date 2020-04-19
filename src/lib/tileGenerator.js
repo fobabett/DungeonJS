@@ -17,7 +17,7 @@
  *  * => player (and floor)
  */
 
-import levels from './levels'
+import { levels } from './game-levels'
 import None from '../components/tiles/None'
 import Floor from '../components/tiles/Floor'
 import Door from '../components/tiles/Door'
@@ -42,7 +42,7 @@ const parseTiles = asciiMap => asciiMap
 
 const findPlayer = (level, asciiMap) => {
   const playerMustExist = asciiMap.match(/\*/g).length
-  switch(true){
+  switch (true) {
     case playerMustExist === 0:
       throw new Error(`Level ${level} does not have a player starting position! (*)`)
     case playerMustExist > 1:
@@ -56,7 +56,7 @@ const findPlayer = (level, asciiMap) => {
             playerPos
           , null
         )
-      }
+  }
 }
 
 export const generateTiles = level => ({

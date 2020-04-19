@@ -1,6 +1,6 @@
 // import levels from './levels'
 
-export default const lessons = [
+export const lessons = [
   {
     id: 1,
     title: "Functions",
