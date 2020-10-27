@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Menu from './screens/Menu'
 // import Game from './screens/Game'
 import Lessons from './screens/Lessons'
+import Catch404 from './screens/Catch404'
 
 import './App.css';
 import { initialEditorState } from './reducers/editor';
@@ -28,6 +29,7 @@ const App = () => {
         {/* <Route exact path="/game" component={Game} /> */}
         <Route exact path="/lessons" component={Lessons} />
         <Route exact path="/lessons/:lesson/:id" component={Lessons} />
+        <Route component={Catch404} />
       </Router>
     </StateProvider>
   );
