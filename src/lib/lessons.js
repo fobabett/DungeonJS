@@ -228,3 +228,5 @@ const DEPRECATED_levels = [
 
 // remove the first new line
 ].map(asciiRoom => asciiRoom.substr(1))
+
+export default { lessons }
