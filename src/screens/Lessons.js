@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import Editor from '../components/Editor'
 import Room from '../components/Room'
 import { getLesson, getChapter, isLastChapter, isLastLesson } from '../lib/lesson'
 import Lesson from '../components/Lesson'
 import { useStateValue } from '../components/StateProvider'
-import lessons from '../lib/lessons';
-import { RETRY, SUCCESS, RESET } from '../actions';
+import lessons from '../lib/lessons'
+import { RETRY, SUCCESS, RESET } from '../actions'
 
 export default (props) => {
   const [level, setLevel] = useState(1)
@@ -16,6 +17,7 @@ export default (props) => {
   const [{ hero, editor, enemy }, dispatch] = useStateValue();
   const objectivePosition = chapter.id !== 0 && chapter.answer ? chapter.answer.player_position : null
   const [incorrect, setIncorrect] = useState(false)
+  const history = useHistory()
 
   const playerReachedObjective = () => {
     let reachedObjective = true
@@ -59,13 +61,23 @@ export default (props) => {
     setChapter(nextChapter)
     setLesson(nextLesson)
     reset()
-    props.history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
+    history.push(`/lessons/${nextLesson.path}/${nextChapter.path}`)
     // window.location.reload() //temp fix to clear editor
   }
 
   const tryAgain = () => {
     setIncorrect(false)
     dispatch({ type: RETRY })
+  }
+
+  useEffect(() => {
+    history.listen(({pathname}) => {
+      setChapter(getChapter(lesson, pathname))
+    })
+  }, []);
+
+  const navigateBack = () => {
+    history.goBack()
   }
 
   return (
@@ -75,6 +87,7 @@ export default (props) => {
           <Room level={level} />
         </div>
         <div className="lesson-container">
+          <button onClick={navigateBack} className="button button-small button-bg4" style={{marginLeft: "10px", marginTop: "10px", borderBottom: "4px solid #333" }}>Go Back</button>
           <Lesson
             lesson={lesson}
             chapter={chapter}

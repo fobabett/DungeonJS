@@ -1,16 +1,19 @@
-import React from 'react'
 import { join } from 'path'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 import lessons from '../lib/lessons'
 import titleGraphic from '../assets/dungeon-title.png'
 
 export default (props) => {
 
+  const history = useHistory()
+
   const navigateToLesson = (lessonPath, chapterPath) => () => {
-    props.history.push(join("/lessons", lessonPath, chapterPath))
+    history.push(join("/lessons", lessonPath, chapterPath))
   }
 
   const navigateToMenu = () => {
-    props.history.push("/")
+    history.push("/")
   }
 
   return (
@@ -19,7 +22,7 @@ export default (props) => {
       <p>Choose an adventure!</p>
       {
         lessons.map(({title, path, chapters}) =>
-          <button onClick={navigateToLesson(path, chapters[0].path)} className="button title-button">{title}</button>
+          <button key={title} onClick={navigateToLesson(path, chapters[0].path)} className="button title-button">{title}</button>
         )
       }
       <div>
