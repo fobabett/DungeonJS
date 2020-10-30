@@ -1,6 +1,6 @@
 import React from 'react'
 import { join } from 'path'
-import lessons from '../lib/lessons'
+import { lessons } from '../lib/lessons'
 import titleGraphic from '../assets/dungeon-title.png'
 
 export default (props) => {
@@ -18,7 +18,7 @@ export default (props) => {
       <img className="title-graphic" src={titleGraphic} alt="DungeonJS" />
       <p>Choose an adventure!</p>
       {
-        lessons.map(({title, path, chapters}) =>
+        lessons.map(({ title, path, chapters }) =>
           <button onClick={navigateToLesson(path, chapters[0].path)} className="button title-button">{title}</button>
         )
       }
