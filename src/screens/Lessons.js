@@ -71,9 +71,7 @@ export default (props) => {
   return (
     <div className="container">
       <div className="game-container">
-        <div className="game">
-          <Room lesson={lesson} />
-        </div>
+        <Room lesson={lesson} />
         <div className="lesson-container">
           <Lesson
             lesson={lesson}

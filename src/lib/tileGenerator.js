@@ -35,6 +35,7 @@ const asciiTile = {
 
 const parseTiles = asciiMap => asciiMap
   .split('\n')
+  .filter(row => row.length != 0)
   .map(row => row
     .split('')
     .map(ascii => ascii.toUpperCase())
@@ -61,7 +62,6 @@ const findPlayer = (level, asciiMap) => {
 }
 
 export const generateTiles = (level, lesson) => {
-  console.log(lesson)
   if (level || lesson) {
     return {
       tiles: parseTiles(
