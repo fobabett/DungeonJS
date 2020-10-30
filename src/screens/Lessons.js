@@ -96,9 +96,7 @@ export default (props) => {
   return (
     <div className="container">
       <div className="game-container">
-        <div className="game">
-          <Room lesson={lesson} />
-        </div>
+        <Room lesson={lesson} />
         <div className="lesson-container">
           <button onClick={navigateBack} className="button button-small button-bg4" style={{marginLeft: "10px", marginTop: "10px", borderBottom: "4px solid #333" }}>Go Back</button>
           <Lesson
