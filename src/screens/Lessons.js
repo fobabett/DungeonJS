@@ -41,9 +41,9 @@ export default (props) => {
       } else {
         setIncorrect(true)
       }
-    } else if(editor.success) {
-        setCompleted(true)
-        setSuccess(true)
+    } else if (editor.success) {
+      setCompleted(true)
+      setSuccess(true)
     } else {
       setIncorrect(true)
     }
@@ -84,7 +84,7 @@ export default (props) => {
     <div className="container">
       <div className="game-container">
         <div className="game">
-          <Room level={level} />
+          <Room lesson={lesson} />
         </div>
         <div className="lesson-container">
           <button onClick={navigateBack} className="button button-small button-bg4" style={{marginLeft: "10px", marginTop: "10px", borderBottom: "4px solid #333" }}>Go Back</button>
