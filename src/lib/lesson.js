@@ -1,4 +1,4 @@
-import lessons from './lessons'
+import { lessons } from './lessons'
 
 export const getLesson = (pathname) => {
   let path = pathname.split('/')[2]
