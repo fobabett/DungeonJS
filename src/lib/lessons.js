@@ -21,7 +21,7 @@ function attack(){
 const attack = () => {
   // do stuff
 }`,
-
+        help: ``,
         map: `
 ##########
 ##########
@@ -51,6 +51,12 @@ function exampleFunc() {
           if(typeof myFirstFunc !== 'function')
             throw new Error('myFirstFunc is not a function')
         `,
+        help: `
+// defines a function that would print "hello world" when it's invoked
+function myFirstFunc() {
+  console.log("hello world")
+}
+`,
         map: `
 ##########
 ##########
@@ -94,6 +100,14 @@ function exampleFunc() {
             throw new Error('myFirstFunc was not invoked or was misspelled')
           console.log = __realLog
         `,
+        help: `
+function myFirstFunc() {
+  console.log("hello world")
+}
+
+// invokes the function named 'myFirstFunc' defined above
+myFirstFunc()
+`,
         map: `
 ##########
 ##########
@@ -120,8 +134,9 @@ moveRight`,
         task: 'Using these functions, move the player to the ladder.',
         answer: { player_position: { x:3, y: 1 } }, //should be objective position
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
-        In the next lesson, you will learn about loops and how you cn use them to complete this level.`,
+        In the next lesson, you will learn about loops and how you can use them to complete this level.`,
         placeholder: '',
+        help: ``,
         map: `
 ##########
 ###D######
@@ -145,6 +160,7 @@ moveRight`,
         title: "Coming Soon",
         path: 'loops',
         content: ``,
+        help: ``,
         map: `
 ##########
 ##########
@@ -155,7 +171,6 @@ moveRight`,
 ##########
 ##########
 `,
-
       },
     ]
   }

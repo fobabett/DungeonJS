@@ -8,6 +8,8 @@ import { useStateValue } from '../components/StateProvider'
 import { lessons } from '../lib/lessons'
 import { RETRY, SUCCESS, RESET } from '../actions'
 
+const ATTEMPTS_TO_SHOW_HELP = 2
+
 export default (props) => {
   const [level, setLevel] = useState(1)
   const [lesson, setLesson] = useState(getLesson(props.location.pathname))
@@ -17,6 +19,10 @@ export default (props) => {
   const [{ hero, editor, enemy }, dispatch] = useStateValue();
   const objectivePosition = chapter.id !== 0 && chapter.answer ? chapter.answer.player_position : null
   const [incorrect, setIncorrect] = useState(false)
+  const [incorrectCount, setIncorrectCount] = useState(1)
+  const [showHelpButton, setShowHelpButton] = useState(false)
+  const [showHelp, setShowHelp] = useState(false)
+
   const history = useHistory()
 
   const playerReachedObjective = () => {
@@ -66,8 +72,13 @@ export default (props) => {
   }
 
   const tryAgain = () => {
+    setIncorrectCount(incorrectCount+1)
     setIncorrect(false)
     dispatch({ type: RETRY })
+
+    if(incorrectCount >= ATTEMPTS_TO_SHOW_HELP){
+      setShowHelpButton(true)
+    }
   }
 
   useEffect(() => {
@@ -79,6 +90,8 @@ export default (props) => {
   const navigateBack = () => {
     history.goBack()
   }
+
+  const showHelpButtonClicked = () => setShowHelp(true)
 
   return (
     <div className="container">
@@ -93,6 +106,9 @@ export default (props) => {
             incorrect={incorrect}
             success={success}
             error={editor.error}
+            showHelpButton={showHelpButton}
+            showHelpButtonClicked={showHelpButtonClicked}
+            showHelp={showHelp}
           />
         </div>
       </div>
