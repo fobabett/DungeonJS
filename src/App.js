@@ -2,16 +2,17 @@ import React from 'react';
 import { StateProvider } from './components/StateProvider'
 import { combinedReducer } from './reducers'
 import { initialHeroState } from './reducers/hero'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Menu from './screens/Menu'
 import LessonsMenu from './screens/LessonsMenu'
 // import Game from './screens/Game'
 import Lessons from './screens/Lessons'
 
 import './App.css';
-import { initialEditorState } from './reducers/editor';
+import { initialEditorState } from './reducers/editor'
 import { initialEnemyState } from './reducers/enemy'
-import { initialRoomState } from './reducers/room';
+import { initialRoomState } from './reducers/room'
+
 
 const App = () => {
 

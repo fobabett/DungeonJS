@@ -1,10 +1,13 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import titleGraphic from '../assets/dungeon-title.png'
 
 export default (props) => {
 
+  const history = useHistory()
+
   const lessons = () => {
-    props.history.push("/lessons")
+    history.push("/lessons")
   }
 
   return (

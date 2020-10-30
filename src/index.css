@@ -459,6 +459,16 @@ code {
   outline: none;
   letter-spacing: 1px;
 }
+.button-small{
+  height: 25px;
+  line-height: 18px;
+  font-size: 10px;
+}
+.button:hover{
+  cursor: pointer;
+  background-color: #555;
+}
+
 .next-button{
   position: absolute;
   width: 100%;
@@ -623,11 +633,19 @@ h2{
   border-bottom: 8px solid #2d6e8e;
 }
 
+.button-bg4{
+  color: #ccc;
+  background-color: #777;
+  border-bottom: 8px solid #333;
+}
+
+.button-full-width{
+  width: 100%;
+}
+
 .title-screen p{
   color: #949494;
 }
-
-
 
 .title-button.disabled{
   margin-top: 20px;
