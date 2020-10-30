@@ -1,7 +1,7 @@
 import { join } from 'path'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import lessons from '../lib/lessons'
+import { lessons } from '../lib/lessons'
 import titleGraphic from '../assets/dungeon-title.png'
 
 export default (props) => {
