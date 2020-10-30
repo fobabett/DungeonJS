@@ -604,7 +604,23 @@ h2{
   display: block;
   width: 300px;
   margin: 0 auto;
+  margin-bottom: 10px;
   border-bottom: 8px solid #8e2d4d;
+}
+
+.button-bg1{
+  background-color: #7edd52;
+  border-bottom: 8px solid #4d8e2d;
+}
+
+.button-bg2{
+  background-color: #dd8152;
+  border-bottom: 8px solid #8e4d2d;
+}
+
+.button-bg3{
+  background-color: #52acdd;
+  border-bottom: 8px solid #2d6e8e;
 }
 
 .title-screen p{
@@ -624,6 +640,7 @@ h2{
   display: block;
   font-size: 8px;
 }
+
 .lesson pre{
   font-size: 11px;
 }
