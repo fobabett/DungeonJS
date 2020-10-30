@@ -1,6 +1,6 @@
 // import levels from './levels'
 
-const lessons = [
+export const lessons = [
   {
     id: 1,
     title: "Functions",
@@ -22,6 +22,16 @@ const attack = () => {
   // do stuff
 }`,
         help: ``,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
       {
         id: 1,
@@ -46,6 +56,16 @@ function exampleFunc() {
 function myFirstFunc() {
   console.log("hello world")
 }
+`,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
 `,
       },
       {
@@ -80,7 +100,24 @@ function myFirstFunc() {
             throw new Error('myFirstFunc was not invoked or was misspelled')
           console.log = __realLog
         `,
-        help: ``,
+        help: `
+function myFirstFunc() {
+  console.log("hello world")
+}
+
+// invokes the function named 'myFirstFunc' defined above
+myFirstFunc()
+`,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
       // cover arguments??
       {
@@ -99,13 +136,16 @@ moveRight`,
         completionMessage: `You probably had to call the functions multiple times. There's a more efficient way to do this.
         In the next lesson, you will learn about loops and how you can use them to complete this level.`,
         placeholder: '',
-        help: `
-function myFirstFunc() {
-  console.log("hello world")
-}
-
-// invokes the function named 'myFirstFunc' defined above
-myFirstFunc()
+        help: ``,
+        map: `
+##########
+###D######
+##########
+####*#####
+##########
+##########
+##########
+##########
 `,
       },
     ],
@@ -121,9 +161,70 @@ myFirstFunc()
         path: 'loops',
         content: ``,
         help: ``,
+        map: `
+##########
+##########
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
       },
     ]
   }
 ]
 
-export default lessons
+const DEPRECATED_levels = [
+
+// level 0
+// learn to move forward
+// eslint-disable-next-line
+`
+##########
+####D#####
+##########
+####*#####
+##########
+##########
+##########
+##########
+`,
+
+// level 1
+// learn to move sideward
+// eslint-disable-next-line
+`
+##########
+###D######
+##########
+#######*##
+##########
+##########
+##########
+##########
+`,
+
+// level 2
+// learn to not fall
+// eslint-disable-next-line
+`
+..........
+.D###.....
+....#.....
+....#.....
+....*.....
+..........
+..........
+..........
+`,
+
+
+// level 3
+// eslint-disable-next-line
+
+
+
+// remove the first new line
+].map(asciiRoom => asciiRoom.substr(1))
