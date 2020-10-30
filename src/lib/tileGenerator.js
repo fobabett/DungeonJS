@@ -17,7 +17,8 @@
  *  * => player (and floor)
  */
 
-import levels from './levels'
+import { levels } from './game-levels'
+import { lessons } from './lessons'
 import None from '../components/tiles/None'
 import Floor from '../components/tiles/Floor'
 import Door from '../components/tiles/Door'
@@ -34,6 +35,7 @@ const asciiTile = {
 
 const parseTiles = asciiMap => asciiMap
   .split('\n')
+  .filter(row => row.length != 0)
   .map(row => row
     .split('')
     .map(ascii => ascii.toUpperCase())
@@ -42,7 +44,7 @@ const parseTiles = asciiMap => asciiMap
 
 const findPlayer = (level, asciiMap) => {
   const playerMustExist = asciiMap.match(/\*/g).length
-  switch(true){
+  switch (true) {
     case playerMustExist === 0:
       throw new Error(`Level ${level} does not have a player starting position! (*)`)
     case playerMustExist > 1:
@@ -56,16 +58,22 @@ const findPlayer = (level, asciiMap) => {
             playerPos
           , null
         )
-      }
+  }
 }
 
-export const generateTiles = level => ({
-  tiles: parseTiles(
-    levels[level]
-  ),
-  playerPos: findPlayer(
-    level,
-    levels[level]
-  )
-})
+export const generateTiles = (level, lesson) => {
+  if (level || lesson) {
+    return {
+      tiles: parseTiles(
+        level ? levels[level].room : lesson.chapters[0].map
+      ),
+      playerPos: findPlayer(
+        level ? level : lesson.id,
+        level ? levels[level] : lesson.chapters[0].map
+      )
+    }
+  } else {
+    return { tiles: null, playerPos: null }
+  }
+}
 

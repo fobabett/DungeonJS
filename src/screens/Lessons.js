@@ -4,7 +4,7 @@ import Room from '../components/Room'
 import { getLesson, getChapter, isLastChapter, isLastLesson } from '../lib/lesson'
 import Lesson from '../components/Lesson'
 import { useStateValue } from '../components/StateProvider'
-import lessons from '../lib/lessons';
+import { lessons } from '../lib/lessons';
 import { RETRY, SUCCESS, RESET } from '../actions';
 
 export default (props) => {
@@ -39,9 +39,9 @@ export default (props) => {
       } else {
         setIncorrect(true)
       }
-    } else if(editor.success) {
-        setCompleted(true)
-        setSuccess(true)
+    } else if (editor.success) {
+      setCompleted(true)
+      setSuccess(true)
     } else {
       setIncorrect(true)
     }
@@ -71,9 +71,7 @@ export default (props) => {
   return (
     <div className="container">
       <div className="game-container">
-        <div className="game">
-          <Room level={level} />
-        </div>
+        <Room lesson={lesson} />
         <div className="lesson-container">
           <Lesson
             lesson={lesson}
