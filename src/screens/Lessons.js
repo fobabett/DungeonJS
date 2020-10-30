@@ -94,6 +94,5 @@ export default (props) => {
         lastLesson={lesson.id === 2 ? true : false} //temporary
       />
     </div>
-
   );
 }
